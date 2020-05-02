@@ -51,7 +51,7 @@
                         :timerResetProp="this.timerReset"
                         @timeUp="nextQuestionTimeup"
                         @calculateQuestionPoint="calculateQuestionPoint"
-                        @handlePause="handlePause" class="float-right mr-2 mb-2"/>
+                        @handlePause="handlePause" class="float-right mr-2 mb-2 ml-2"/>
             </div>
         </b-navbar>
 
