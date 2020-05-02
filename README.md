@@ -22,3 +22,9 @@ En yüksek puani yapıp, ekran görüntüsünü arkadaşlarınızla paylaşmayı
 
 
 https://turkiyem.abdulkerimdulger.com adresinden canlı önizlemesine bakabilir, oyunu oynayabilirsiniz.
+
+
+Svg Harita için;
+https://github.com/dnomak/svg-turkiye-haritasi
+reposu kullanılmıştır. 
+@dnomak'a teşekkür ederim.
