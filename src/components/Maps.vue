@@ -137,7 +137,6 @@
                 questionText: "",
                 questionIndex: null,
                 skor: 0,
-                elepsadTime: 30,
                 timerReset: "false",
                 questionPoint: 3,
                 disabledMap: "disabledMap",
@@ -150,22 +149,12 @@
                 isTimeout: false,
                 modalNedirShow: false,
                 pauseTimer: false,
-                dogruCevapSayisi:0,
-                yanlisCevapSayisi:0
+                dogruCevapSayisi: 0,
+                yanlisCevapSayisi: 0,
+                soruyaVerilenYanlisCevapSayisi: 0,
+                yanlisCevapHakki: 3,
+                keywordCount: 3
             };
-        },
-        computed: {
-            getElepsadTimeIcon: function () {
-                if (this.elepsadTime >= 40) {
-                    return "hourglass-start";
-                } else if (this.elepsadTime >= 20) {
-                    return "hourglass-half";
-                } else if (this.elepsadTime > 0) {
-                    return "hourglass-end";
-                } else {
-                    return "hourglass";
-                }
-            }
         },
         created() {
             // fetch("https://turkiyem.abdulkerimdulger.com/illerin-meshur-seyleri.json")
@@ -223,7 +212,8 @@
                     this.isHataliMessage = false;
                     this.isQuestionText = false;
 
-                    this.dogruCevapSayisi+=1;
+                    this.dogruCevapSayisi += 1;
+                    this.soruyaVerilenYanlisCevapSayisi = 0;
 
                     setTimeout(() => {
                         this.isBasariliMessage = false;
@@ -240,7 +230,9 @@
                     this.isHataliMessage = true;
                     this.isQuestionText = false;
 
-                    this.yanlisCevapSayisi+=1;
+                    this.yanlisCevapSayisi += 1;
+
+                    this.soruyaVerilenYanlisCevapSayisi += 1;
 
                     setTimeout(() => {
                         this.isBasariliMessage = false;
@@ -249,8 +241,9 @@
                         this.removeCountryName();
                         $("." + item.$el.attributes.id.value + " path")[0].classList.remove("fillClick");
                         $("." + item.$el.attributes.id.value + " path")[0].classList.add("fillDefault");
-
                     }, 1000);
+
+                    this.showCorrectAnswerAndPassQuestion();
                 }
             },
             handlePause: function (isPaused) {
@@ -262,6 +255,7 @@
                 }
             },
             passQuestion: function () {
+                this.soruyaVerilenYanlisCevapSayisi = 0;
                 setTimeout(() => {
                     this.nextQuestion();
                 }, 1000);
@@ -282,7 +276,37 @@
                 this.skor -= 2;
                 this.kaybedilenPuan = 2;
                 this.isTimeout = true;
-                this.passQuestion();
+                // this.passQuestion();
+
+                this.showCorrectAnswerAndPassQuestion();
+
+            },
+            showCorrectAnswerAndPassQuestion:function(){
+                if (this.soruyaVerilenYanlisCevapSayisi === this.yanlisCevapHakki || this.isTimeout) {
+
+                    //Bilemediği durumda cevabı göster ve sonraki soruya geç.
+                    const plaka = this.questionIndex < 9 ? "0" + (this.questionIndex + 1) : parseInt(this.questionIndex) + 1;
+
+                    var correctAnswersCountryElement = $("g [plaka='" + plaka + "'] path")[0];
+                    correctAnswersCountryElement.classList.add("fillSuccess");
+                    correctAnswersCountryElement.classList.remove("fillDefault");
+
+
+                    const correctAnswerCountryName = $("g [plaka='" + plaka + "']").attr("adi");
+                    $(".il-isimleri").html("<div>"+correctAnswerCountryName+"</div>");
+
+                    let countryNameTopPosition = correctAnswersCountryElement.getBoundingClientRect().top;
+                    let countryNameLeftPosition = correctAnswersCountryElement.getBoundingClientRect().left;
+                    $(".il-isimleri").css("top",countryNameTopPosition+20+"px");
+                    $(".il-isimleri").css("left",countryNameLeftPosition+40+"px");
+
+                    setTimeout(() => {
+                        correctAnswersCountryElement.classList.remove("fillSuccess");
+                        correctAnswersCountryElement.classList.add("fillDefault");
+                        $(".il-isimleri").html("");
+                    }, 1000);
+                    this.passQuestion();
+                }
             },
             nextQuestion: function () {
 
@@ -303,13 +327,17 @@
                     $(".il-isimleri div")[0].remove()
             },
             getMeshurSeylerBy(plaka) {
-                return this.meshurSeyler[plaka - 1].meshurSeyleri.join(", ");
+                let meshurSeylerRandom = this.shuffle(this.meshurSeyler[plaka - 1].meshurSeyleri);
+                return meshurSeylerRandom.slice(0, this.keywordCount).join(", ");
             },
             getRandomPlaka: function (min, max) {
                 return Math.floor(Math.random() * (max - min)) + min;
             },
             calculateQuestionPoint: function (point) {
                 this.questionPoint = point;
+            },
+            shuffle: function (arr) {
+                return arr.sort(() => Math.random() - 0.5);
             }
         }
     }
