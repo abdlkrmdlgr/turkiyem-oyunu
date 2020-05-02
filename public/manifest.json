@@ -1,0 +1,22 @@
+{
+  "name": "Türkiyem",
+  "short_name": "Türkiyem",
+  "description": "Türkiye'nin illeri bulmacası. Anahtar kelimelere göre hangi il olduğunu bil!",
+  "icons": [
+    {
+      "src": "icons/android-icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/android-icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#FFF",
+  "theme_color": "#FFF"
+}

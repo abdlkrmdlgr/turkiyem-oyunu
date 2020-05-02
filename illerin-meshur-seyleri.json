@@ -1,0 +1,796 @@
+[
+  {
+    "plaka": "01",
+    "adi": "Adana",
+    "meshurSeyleri": [
+      "Yüksük çorbası",
+      "Analı Kızlı çorbası",
+      "Kebabı",
+      "Hamiş",
+      "Karakuş",
+      "Mahluta",
+      "Karsambaç",
+      "Bici Bici",
+      "Aşlama",
+      "Şırdan",
+      "Şalgam Suyu",
+      "Çukurova",
+      "Beyaz Altın",
+      "Delta Ovası",
+      "Anavarza Kalesi"
+    ]
+  },
+  {
+    "plaka": "02",
+    "adi": "Adıyaman",
+    "meshurSeyleri": [
+      "Besni Üzümü",
+      "Nemrut Dağı"
+    ]
+  },
+  {
+    "plaka": "03",
+    "adi": "Afyon",
+    "meshurSeyleri": [
+      "Kaymak",
+      "Sucuk",
+      "Kaplıca",
+      "Mermer"
+    ]
+  },
+  {
+    "plaka": "04",
+    "adi": "Ağrı",
+    "meshurSeyleri": [
+      "Dağı",
+      "İshak Paşa Sarayı",
+      "Abdigor Köftesi",
+      "Goşteberg Et"
+    ]
+  },
+  {
+    "plaka": "05",
+    "adi": "Amasya",
+    "meshurSeyleri": [
+      "Elma",
+      "Kalesi",
+      "Kral Kaya Mezarları",
+      "Darüşşifa"
+    ]
+  },
+  {
+    "plaka": "06",
+    "adi": "Ankara",
+    "meshurSeyleri": [
+      "Tava Yemeği",
+      "Tiftik Keçisi",
+      "Anıtkabir"
+    ]
+  },
+  {
+    "plaka": "07",
+    "adi": "Antalya",
+    "meshurSeyleri": [
+      "Düden Şelalesi",
+      "Karain Mağaraları",
+      "Turizm",
+      "Muz",
+      "Yivli Minare",
+      "Turunçgil ve Seracılık"
+    ]
+  },
+  {
+    "plaka": "08",
+    "adi": "Artvin",
+    "meshurSeyleri": [
+      "Barhal Kilisesi",
+      "Sarp Sınır Kapısı",
+      "Çoruh Nehri"
+    ]
+  },
+  {
+    "plaka": "09",
+    "adi": "Aydın",
+    "meshurSeyleri": [
+      "İncir",
+      "Efe",
+      "Menderes",
+      "Ova",
+      "Altınkum",
+      "Antik Kent"
+    ]
+  },
+  {
+    "plaka": "10",
+    "adi": "Balıkesir",
+    "meshurSeyleri": [
+      "Ayranı",
+      "Tostu",
+      "Manyas Gölü",
+      "Zeytin",
+      "Höşmerim"
+    ]
+  },
+  {
+    "plaka": "11",
+    "adi": "Bilecik",
+    "meshurSeyleri": [
+      "Mehmet Paşa Kervansarayı",
+      "Kınık Şelalesi",
+      "Bıldırcın Kebabı"
+    ]
+  },
+  {
+    "plaka": "12",
+    "adi": "Bingöl",
+    "meshurSeyleri": [
+      "Yüzen Ada",
+      "Ayran Çorbası"
+    ]
+  },
+  {
+    "plaka": "13",
+    "adi": "Bitlis",
+    "meshurSeyleri": [
+      "Büryan",
+      "Mezar Taşları"
+    ]
+  },
+  {
+    "plaka": "14",
+    "adi": "Bolu",
+    "meshurSeyleri": [
+      "Aşçı",
+      "Yedi Göller"
+    ]
+  },
+  {
+    "plaka": "15",
+    "adi": "Burdur",
+    "meshurSeyleri": [
+      "Sagalassos Antik Kenti",
+      "Bedelli Askerlik",
+      "İnsuyu Mağarası",
+      "Salda Gölü"
+    ]
+  },
+  {
+    "plaka": "16",
+    "adi": "Bursa",
+    "meshurSeyleri": [
+      "Kestane Şekeri",
+      "Şeftali",
+      "Ulu Cami",
+      "Uludağ",
+      "Karagöz ve Hacivat"
+    ]
+  },
+  {
+    "plaka": "17",
+    "adi": "Çanakkale",
+    "meshurSeyleri": [
+      "Peynir Helvası",
+      "Şehitler Abidesi",
+      "18 Mart",
+      "Boğaz",
+      "Assos",
+      "Truva"
+    ]
+  },
+  {
+    "plaka": "18",
+    "adi": "Çanakkale",
+    "meshurSeyleri": [
+      "Taşmescit",
+      "Kayatuzu"
+    ]
+  },
+  {
+    "plaka": "19",
+    "adi": "Çorum",
+    "meshurSeyleri": [
+      "Hattuşaş",
+      "Leblebi"
+    ]
+  },
+  {
+    "plaka": "20",
+    "adi": "Denizle",
+    "meshurSeyleri": [
+      "Traverten",
+      "Horoz",
+      "Kiraz",
+      "Dokuma"
+    ]
+  },
+  {
+    "plaka": "21",
+    "adi": "Diyarbakır",
+    "meshurSeyleri": [
+      "Karpuz",
+      "Malabadi Köprüsü",
+      "Sur"
+    ]
+  },
+  {
+    "plaka": "22",
+    "adi": "Edirne",
+    "meshurSeyleri": [
+      "Selimiye Cami",
+      "Kırkpınar Yağlı Güreşleri",
+      "Uzunköprü"
+    ]
+  },
+  {
+    "plaka": "23",
+    "adi": "Elazığ",
+    "meshurSeyleri": [
+      "Harput Kalesi",
+      "Keban Barajı",
+      "Çaydaçıra Halk Oyunu"
+    ]
+  },
+  {
+    "plaka": "24",
+    "adi": "Erzincan",
+    "meshurSeyleri": [
+      "Tulum Peyniri",
+      "Girlevik Şelalesi"
+    ]
+  },
+  {
+    "plaka": "25",
+    "adi": "Erzurum",
+    "meshurSeyleri": [
+      "Cağ Kebabı",
+      "Palandöken",
+      "Çifte Minareli Medrese",
+      "Oltu Taşı"
+    ]
+  },
+  {
+    "plaka": "26",
+    "adi": "Eskişehir",
+    "meshurSeyleri": [
+      "Lületaşı",
+      "Midas Tapınağı",
+      "Ermeni Kilisesi",
+      "Çi Börek",
+      "Mercimekli Börek",
+      "Sazova",
+      "Nasreddin Hoca"
+    ]
+  },
+  {
+    "plaka": "27",
+    "adi": "Gaziantep",
+    "meshurSeyleri": [
+      "Fıstık",
+      "Baklava",
+      "Zeugma Antik Kenti",
+      "Gastronomi"
+    ]
+  },
+  {
+    "plaka": "28",
+    "adi": "Giresun",
+    "meshurSeyleri": [
+      "Fındık",
+      "Şebinkarahisar Kalesi",
+      "Aygır Gölü",
+      "Görele Pidesi",
+      "Kiraz"
+    ]
+  },
+  {
+    "plaka": "29",
+    "adi": "Gümüşhane",
+    "meshurSeyleri": [
+      "Tomara Şelalesi",
+      "Kuşburnu Çayı"
+    ]
+  },
+  {
+    "plaka": "30",
+    "adi": "Hakkari",
+    "meshurSeyleri": [
+      "Zap Suyu",
+      "Şemdinli Balı",
+      "Kilim"
+    ]
+  },
+  {
+    "plaka": "31",
+    "adi": "Hatay",
+    "meshurSeyleri": [
+      "Mozaik Müzesi",
+      "Künefe Tatlısı",
+      "Erzin Kaplıcaları"
+    ]
+  },
+  {
+    "plaka": "32",
+    "adi": "Isparta",
+    "meshurSeyleri": [
+      "Gül",
+      "Halı",
+      "Eğirdir Gölü"
+    ]
+  },
+  {
+    "plaka": "33",
+    "adi": "Mersin",
+    "meshurSeyleri": [
+      "Silifke Yoğurdu",
+      "Anamur Muzu",
+      "Tarsus Şelalesi",
+      "Cezerye"
+    ]
+  },
+  {
+    "plaka": "34",
+    "adi": "İstanbul",
+    "meshurSeyleri": [
+      "Kız Kulesi",
+      "Topkapı Sarayı",
+      "Vefa Bozası",
+      "Yedi Tepe",
+      "Fatih Sultan Mehmet"
+    ]
+  },
+  {
+    "plaka": "35",
+    "adi": "İzmir",
+    "meshurSeyleri": [
+      "Saat Kulesi",
+      "Boyoz",
+      "Kumru",
+      "Revani",
+      "Kordon Boyu"
+    ]
+  },
+  {
+    "plaka": "36",
+    "adi": "Kars",
+    "meshurSeyleri": [
+      "Kaşar Peyniri",
+      "Sarıkamış"
+    ]
+  },
+  {
+    "plaka": "37",
+    "adi": "Kastamonu",
+    "meshurSeyleri": [
+      "Saray Helvası",
+      "Sarımsak",
+      "Pastırma",
+      "Cehennem Deresi Kanyonu",
+      "Tosya Pirinci",
+      "Kır Pidesi"
+    ]
+  },
+  {
+    "plaka": "38",
+    "adi": "Kayseri",
+    "meshurSeyleri": [
+      "Mantı",
+      "Pastırma",
+      "Ticaret",
+      "Erciyes",
+      "Gesi Bağları"
+    ]
+  },
+  {
+    "plaka": "39",
+    "adi": "Kırklareli",
+    "meshurSeyleri": [
+      "Dupnisa Mağarası",
+      "Alpullu Şeker Fabrikası",
+      "Hamitabat Doğalgaz Santrali"
+    ]
+  },
+  {
+    "plaka": "40",
+    "adi": "Kırşehir",
+    "meshurSeyleri": [
+      "Hirfanlı Barajı",
+      "Mucur Yeraltı Şehri",
+      "Cacabey Medresesi"
+    ]
+  },
+  {
+    "plaka": "41",
+    "adi": "Kocaeli",
+    "meshurSeyleri": [
+      "Pişmaniye",
+      "Hereke Halısı",
+      "Kandıra Yoğurdu",
+      "Darıca Kuş Cenneti",
+      "Yarımca Kirazı",
+      "Körfez",
+      "Tüpraş"
+    ]
+  },
+  {
+    "plaka": "42",
+    "adi": "Konya",
+    "meshurSeyleri": [
+      "Etli Ekmek",
+      "Mevlana",
+      "Akide Şekeri"
+    ]
+  },
+  {
+    "plaka": "43",
+    "adi": "Kütahya",
+    "meshurSeyleri": [
+      "Çini",
+      "Tunçbilek Linyit Kömürü",
+      "Kaplıcalar",
+      "Tavşanlı Leblebisi"
+    ]
+  },
+  {
+    "plaka": "44",
+    "adi": "Malatya",
+    "meshurSeyleri": [
+      "Kayısı",
+      "Günpınar Şelalesi",
+      "Karakaya Barajı",
+      "Darende Kudret Hamamı"
+    ]
+  },
+  {
+    "plaka": "45",
+    "adi": "Manisa",
+    "meshurSeyleri": [
+      "Çekirdeksiz Üzüm",
+      "Şehzade",
+      "Mesir Macunu",
+      "Linyit Kömürü",
+      "Vestel",
+      "Akhisar Köftesi"
+    ]
+  },
+  {
+    "plaka": "46",
+    "adi": "Kahramanmaraş",
+    "meshurSeyleri": [
+      "Dondurma",
+      "Döngel Mağaraları",
+      "Sütçü İmam"
+    ]
+  },
+  {
+    "plaka": "47",
+    "adi": "Mardin",
+    "meshurSeyleri": [
+      "Mardin Kalesi",
+      "Taş Evleri",
+      "Dara Harabeleri",
+      "Gerdanlığı",
+      "Kapısı"
+    ]
+  },
+  {
+    "plaka": "48",
+    "adi": "Muğla",
+    "meshurSeyleri": [
+      "Bodrum",
+      "Marmaris",
+      "Fethiye",
+      "Ölü Deniz",
+      "Çam Balı"
+    ]
+  },
+  {
+    "plaka": "49",
+    "adi": "Muş",
+    "meshurSeyleri": [
+      "Ovası",
+      "Malazgirt Anıtı",
+      "Gaz Gölü"
+    ]
+  },
+  {
+    "plaka": "50",
+    "adi": "Nevşehir",
+    "meshurSeyleri": [
+      "Peribacaları",
+      "Testi Kebabı",
+      "Derin Kuyu Yeraltı Şehirleri"
+    ]
+  },
+  {
+    "plaka": "51",
+    "adi": "Niğde",
+    "meshurSeyleri": [
+      "Patates",
+      "Kuşkaya Mezarlığı",
+      "Çiftehan Kaplıcaları"
+    ]
+  },
+  {
+    "plaka": "52",
+    "adi": "Ordu",
+    "meshurSeyleri": [
+      "Fındık",
+      "Bal",
+      "Yason Kilisesi",
+      "Keyfalan Yaylası"
+    ]
+  },
+  {
+    "plaka": "53",
+    "adi": "Rize",
+    "meshurSeyleri": [
+      "Çay",
+      "Çamlıhemşin Yaylası",
+      "Anzer Balı",
+      "Fırtına Deresi Vadisi",
+      "Elevit Şelalesi"
+    ]
+  },
+  {
+    "plaka": "54",
+    "adi": "Sakarya",
+    "meshurSeyleri": [
+      "Sapanca Gölü",
+      "Akyazı Kuzuluk Kaplıcaları",
+      "Nehri",
+      "Meydan Muharebesi"
+    ]
+  },
+  {
+    "plaka": "55",
+    "adi": "Samsun",
+    "meshurSeyleri": [
+      "Tütün",
+      "Bafra Pidesi",
+      "Vezirköprü Semaveri"
+    ]
+  },
+  {
+    "plaka": "56",
+    "adi": "Siirt",
+    "meshurSeyleri": [
+      "Büryan Kebabı",
+      "Perde Pilavı",
+      "Derzin Kalesi",
+      "Siirt Fıstığı"
+    ]
+  },
+  {
+    "plaka": "57",
+    "adi": "Sinop",
+    "meshurSeyleri": [
+      "Boyabat Pirinci",
+      "İnceburun",
+      "İnaltı Mağarası",
+      "Keten"
+    ]
+  },
+  {
+    "plaka": "58",
+    "adi": "Sivas",
+    "meshurSeyleri": [
+      "Köfte",
+      "Gök Medrese",
+      "Kangal Köpeği",
+      "Divriği Ulu Camii",
+      "Darüşşifa"
+    ]
+  },
+  {
+    "plaka": "59",
+    "adi": "Tekirdağ",
+    "meshurSeyleri": [
+      "Şarap",
+      "Rakı",
+      "Ayçiçeği",
+      "Köfte"
+    ]
+  },
+  {
+    "plaka": "60",
+    "adi": "Tokat",
+    "meshurSeyleri": [
+      "Niksar Ayvaz Suyu",
+      "Çemen",
+      "Sulu Saray",
+      "Ballıca Mağarası"
+    ]
+  },
+  {
+    "plaka": "61",
+    "adi": "Trabzon",
+    "meshurSeyleri": [
+      "Sümela Manastırı",
+      "Uzungöl",
+      "Sütlaç",
+      "Akçaabat Köftesi",
+      "Sultan Murat Yaylası"
+    ]
+  },
+  {
+    "plaka": "62",
+    "adi": "Tunceli",
+    "meshurSeyleri": [
+      "Bağın Ilıcası",
+      "Munzur Gözeleri",
+      "Munzur Sarımsağı"
+    ]
+  },
+  {
+    "plaka": "63",
+    "adi": "Şanlıurfa",
+    "meshurSeyleri": [
+      "Kebabı",
+      "Çiğ Köfte",
+      "Balıklı Göl",
+      "Hz. Eyüp Mağarası",
+      "Kalesi"
+    ]
+  },
+  {
+    "plaka": "64",
+    "adi": "Uşak",
+    "meshurSeyleri": [
+      "Tarhana",
+      "Deri, kilim ve Battaniye",
+      "Ulubey Kanyonu",
+      "Karun'un Hazinesi",
+      "Kanatlı At Bronşu"
+    ]
+  },
+  {
+    "plaka": "65",
+    "adi": "Van",
+    "meshurSeyleri": [
+      "Kedisi",
+      "Gölü",
+      "Akdamar Adası"
+    ]
+  },
+  {
+    "plaka": "66",
+    "adi": "Yozgat",
+    "meshurSeyleri": [
+      "Kerkenez Harabeleri",
+      "Arabaşı",
+      "Testi ve Tandır Kebabı"
+    ]
+  },
+  {
+    "plaka": "67",
+    "adi": "Zonguldak",
+    "meshurSeyleri": [
+      "Taşkömürü",
+      "Cehennemağzı",
+      "İnağzı Mağaraları"
+    ]
+  },
+  {
+    "plaka": "68",
+    "adi": "Aksaray",
+    "meshurSeyleri": [
+      "Ihlara Vadisi",
+      "Eğri Minare",
+      "Antik Nora Şehri"
+    ]
+  },
+  {
+    "plaka": "69",
+    "adi": "Bayburt",
+    "meshurSeyleri": [
+      "Aydıntepe Yeraltı Şehri",
+      "Sırakayalar Şelalesi"
+    ]
+  },
+  {
+    "plaka": "70",
+    "adi": "Karaman",
+    "meshurSeyleri": [
+      "Hatuniye Medresesi",
+      "Koyun",
+      "Kara Elmans"
+    ]
+  },
+  {
+    "plaka": "71",
+    "adi": "Kırıkkale",
+    "meshurSeyleri": [
+      "Silah Fabrikası",
+      "Petrol Rafinerisi"
+    ]
+  },
+  {
+    "plaka": "72",
+    "adi": "Batman",
+    "meshurSeyleri": [
+      "Hasankeyf Kalesi",
+      "Petrol Rafinerisi"
+    ]
+  },
+  {
+    "plaka": "73",
+    "adi": "Şırnak",
+    "meshurSeyleri": [
+      "Cudi Dağı",
+      "Habur Sınır Kapısı",
+      "Kasrik Boğazı"
+    ]
+  },
+  {
+    "plaka": "74",
+    "adi": "Bartın",
+    "meshurSeyleri": [
+      "Amasra Kalesi",
+      "Bartın Çayı",
+      "İnkum Plajı"
+    ]
+  },
+  {
+    "plaka": "75",
+    "adi": "Ardahan",
+    "meshurSeyleri": [
+      "Çıldır Gölü"
+    ]
+  },
+  {
+    "plaka": "76",
+    "adi": "Iğdır",
+    "meshurSeyleri": [
+      "Katık Aşı",
+      "Lepeli Ekşili Pilav",
+      "Amarat Kümbet",
+      "Ejder Kervansarayı"
+    ]
+  },
+  {
+    "plaka": "77",
+    "adi": "Yalova",
+    "meshurSeyleri": [
+      "Termal Kaplıcaları",
+      "Atatürk Köşkü Müzesi"
+    ]
+  },
+  {
+    "plaka": "78",
+    "adi": "Karabük",
+    "meshurSeyleri": [
+      "Safran",
+      "Evleri",
+      "Lokumu"
+    ]
+  },
+  {
+    "plaka": "79",
+    "adi": "Kilis",
+    "meshurSeyleri": [
+      "Oylum Höyük",
+      "Yorgan",
+      "Ravanda Kalesi",
+      "Sabunhane Binası",
+      "Ekşili Malhıta"
+    ]
+  },
+  {
+    "plaka": "80",
+    "adi": "Osmaniye",
+    "meshurSeyleri": [
+      "Toprakkale",
+      "Karaçay Şelalesi",
+      "Yer Fıstığı"
+    ]
+  },
+  {
+    "plaka": "81",
+    "adi": "Düzce",
+    "meshurSeyleri": [
+      "Saklıkent Şelalesi",
+      "Efteni Gölü",
+      "Torkul yaylaları"
+    ]
+  }
+]
