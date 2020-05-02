@@ -1,15 +1,10 @@
 <template>
     <div class="harita">
         <b-navbar class="fixed-top m-0 p-0" type="light">
-            <div class="col-md-2 col-sm-2 col-2 text-left p-0">
-                    <span class="btn btn-muted disabled btn-sm font-weight-bold">
-                        Puan:
-                        <span class="badge badge-info">
-                            {{this.skor}}
-                        </span>
-                    </span>
+            <div class="col-md-1 col-sm-1 col-1 text-center p-0">
+
             </div>
-            <div class="col-md-8 col-sm-8 col-7 p-0">
+            <div class="col-md-9 col-sm-9 col-9 p-0">
                 <span v-if="!this.isPaused && this.isQuestionText" class="badge text-wrap col-md-11 col-sm-11 col-11">{{this.questionText}}</span>
                 <span v-if="this.isPaused"
                       class="badge  text-wrap col-md-5 col-sm-5 col-5 font-weight-bold text-danger">#TÜRKİYE'M</span>
@@ -20,7 +15,7 @@
                         class="badge badge-danger">{{this.kaybedilenPuan}}</span> kaybettiniz.
                 </div>
             </div>
-            <div class="col-md-2 col-sm-2 col-3 text-right p-0">
+            <div class="col-md-2 col-sm-2 col-2 text-right p-0 pr-2">
                     <span v-if="!this.isPaused" class="btn" @click="passQuestionManuel">
                         <FontAwesomeIcon icon="random"/>
                     </span>
@@ -30,21 +25,23 @@
             </div>
         </b-navbar>
 
-        <b-navbar class="navbar fixed-bottom m-0 p-0 pl-2 pr-2 col-12 d-flex d-flex justify-content-between"
-                  type="light" style="left: auto">
+        <b-navbar class="navbar fixed-bottom m-0 p-0 pl-2 pr-2 d-flex d-flex justify-content-between"
+                  type="light" style="left: auto;">
 
-            <span class="h6 mb-0 mt-5" style="font-size: 10px">
-                <a href="https://twitter.com/bortecoder" class=" text-muted">
-                    @bortecoder
-                </a>
-            </span>
-
-            <BaseTimer
-                    :pauseTimer="this.pauseTimer"
-                    :timerResetProp="this.timerReset"
-                    @timeUp="nextQuestionTimeup"
-                    @calculateQuestionPoint="calculateQuestionPoint"
-                    @handlePause="handlePause" class="float-right"/>
+            <div>
+                <p class="btn btn-md font-weight-bold mb-0 mt-1">
+                    Puan:
+                    <span>
+                        {{this.skor}}
+                    </span><br>
+                </p>
+                <BaseTimer
+                        :pauseTimer="this.pauseTimer"
+                        :timerResetProp="this.timerReset"
+                        @timeUp="nextQuestionTimeup"
+                        @calculateQuestionPoint="calculateQuestionPoint"
+                        @handlePause="handlePause" class="float-right mr-2 mb-2"/>
+            </div>
         </b-navbar>
 
         <div class="svg-turkiye-haritasi mt-4">
@@ -71,11 +68,16 @@
             <div class="col-md-12 small">
                 <p class="text-right small"><a href="https://twitter.com/bortecoder">@bortecoder</a></p>
                 <p><b>Nedir?</b></p>
-                <p>Bu uygulama Türkiye'mizin illerinde belli başlı ön plana çıkan kültürel, sosyal, coğrafi
+                <p>Bu oyun Türkiye'mizin illerinde belli başlı ön plana çıkan kültürel, sosyal, coğrafi
                     özellikklerinden yola çıkılarak hazırlanmıştır.
                     Size gösterilen anahtar kelimelere karşılık gelen ilimizi bulmanız gerekmektedir.
                 </p>
                 <p><b>Nasıl kullanılır?</b></p>
+
+                <p>Android için: Tarayıcınız üzerinden Anasayfa'ya ekle dediğinizde uygulama çekmecenize kurulum
+                    yapılacak ve oyunu artık oradan oynayabileceksiniz.</p>
+                <p>iOS için: Apple protokolleri gereği sadece Safari'de Anasayfa'ya ekle özelliği çalışmaktadır. Sayfayı
+                    paylaş dediğinizde Anaysafa'ya ekle özelliğini göreceksiniz.</p>
                 <p>Zaman sayacını başlattığınızda sorular anahtar kelimeler size gösterilecektir. Zaman akarken hangi
                     ilimize ait olduğunu bulmanız beklenmektedir.</p>
                 <p>Doğru cevabı bulduğunuzda puan kazanacaksınız. Yanlış cevapta ise puan kaybedersiniz.</p>

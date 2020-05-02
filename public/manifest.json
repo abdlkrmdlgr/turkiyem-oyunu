@@ -17,6 +17,7 @@
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
+  "orientation": "landscape",
   "background_color": "#FFF",
   "theme_color": "#FFF"
 }
