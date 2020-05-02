@@ -33,15 +33,19 @@
         </b-navbar>
 
         <b-navbar class="navbar fixed-bottom m-0 p-0 pl-2 pr-2 d-flex d-flex justify-content-between"
-                  type="light" style="left: auto;">
+                  type="light" style="left: auto; width:25%">
 
             <div>
-                <p class="btn btn-md font-weight-bold mb-0 mt-1">
+                <div class="btn btn-md font-weight-bold mb-0 mt-1 p-0">
                     Puan:
                     <span>
                         {{this.skor}}
                     </span><br>
-                </p>
+                    <span class="badge badge-success">
+                        D:{{this.dogruCevapSayisi}}
+                    </span>
+                    <span class="badge badge-danger">Y:{{this.yanlisCevapSayisi}}</span>
+                </div>
                 <BaseTimer
                         :pauseTimer="this.pauseTimer"
                         :timerResetProp="this.timerReset"
@@ -145,7 +149,9 @@
                 isPassQuestion: false,
                 isTimeout: false,
                 modalNedirShow: false,
-                pauseTimer: false
+                pauseTimer: false,
+                dogruCevapSayisi:0,
+                yanlisCevapSayisi:0
             };
         },
         computed: {
@@ -207,6 +213,7 @@
             },
             handleCountryClick: function (item) {
                 if ((item.$el.attributes.plaka.value - 1) === this.questionIndex) {
+                    //Doğru cevap geldi.
                     $("." + item.$el.attributes.id.value + " path")[0].classList.add("fillSuccess");
                     $("." + item.$el.attributes.id.value + " path")[0].classList.remove("fillDefault");
                     this.skor += this.questionPoint;
@@ -215,6 +222,8 @@
                     this.isBasariliMessage = true;
                     this.isHataliMessage = false;
                     this.isQuestionText = false;
+
+                    this.dogruCevapSayisi+=1;
 
                     setTimeout(() => {
                         this.isBasariliMessage = false;
@@ -230,6 +239,8 @@
                     this.isBasariliMessage = false;
                     this.isHataliMessage = true;
                     this.isQuestionText = false;
+
+                    this.yanlisCevapSayisi+=1;
 
                     setTimeout(() => {
                         this.isBasariliMessage = false;
