@@ -5,13 +5,20 @@
 
             </div>
             <div class="col-md-9 col-sm-9 col-9 p-0">
-                <span v-if="!this.isPaused && this.isQuestionText" class="badge text-wrap col-md-11 col-sm-11 col-11">{{this.questionText}}</span>
+                <span v-if="!this.isPaused && this.isQuestionText && !this.isPassQuestion && !this.isTimeout"
+                      class="badge text-wrap col-md-11 col-sm-11 col-11">{{this.questionText}}</span>
                 <span v-if="this.isPaused"
                       class="badge  text-wrap col-md-5 col-sm-5 col-5 font-weight-bold text-danger">#TÜRKİYE'M</span>
                 <div v-if="this.isBasariliMessage" class="badge">Tebrikler!! Doğru cevap. <span
                         class="badge badge-success">{{this.questionPoint}}</span> kazandınız.
                 </div>
                 <div v-if="this.isHataliMessage" class="text-danger badge">Üzgünüm!! Yanlış cevap. <span
+                        class="badge badge-danger">{{this.kaybedilenPuan}}</span> kaybettiniz.
+                </div>
+                <div v-if="this.isPassQuestion" class="text-danger badge">Soruyu pas geçtiniz. <span
+                        class="badge badge-danger">{{this.kaybedilenPuan}}</span> kaybettiniz.
+                </div>
+                <div v-if="this.isTimeout" class="text-danger badge">Süre içinde cevap vermediniz.. <span
                         class="badge badge-danger">{{this.kaybedilenPuan}}</span> kaybettiniz.
                 </div>
             </div>
@@ -135,6 +142,8 @@
                 isHataliMessage: false,
                 isQuestionText: true,
                 kaybedilenPuan: 0,
+                isPassQuestion: false,
+                isTimeout: false,
                 modalNedirShow: false,
                 pauseTimer: false
             };
@@ -242,7 +251,9 @@
                 }
             },
             passQuestion: function () {
-                setTimeout(this.nextQuestion, 1000);
+                setTimeout(() => {
+                    this.nextQuestion();
+                }, 1000);
                 this.timerReset = new Date().getTime().toString();
             },
             handleNedirModal: function () {
@@ -252,13 +263,18 @@
             },
             passQuestionManuel: function () {
                 this.skor -= 1;
+                this.kaybedilenPuan = 1;
+                this.isPassQuestion = true;
                 setTimeout(this.nextQuestion, 1000);
             },
             nextQuestionTimeup: function () {
                 this.skor -= 2;
+                this.kaybedilenPuan = 2;
+                this.isTimeout = true;
                 this.passQuestion();
             },
             nextQuestion: function () {
+
                 $(".countryPath").each(function () {
                     $(this)[0].classList.remove("fillSuccess");
                     $(this)[0].classList.add("fillDefault");
@@ -268,6 +284,8 @@
                 let meshurSeyTextRandom = this.getMeshurSeylerBy(plaka);
                 this.questionText = meshurSeyTextRandom;
                 this.questionIndex = plaka - 1;
+                this.isPassQuestion = false;
+                this.isTimeout = false;
             },
             removeCountryName: function () {
                 if ($(".il-isimleri div")[0] !== undefined)
