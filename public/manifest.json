@@ -19,5 +19,7 @@
   "display": "standalone",
   "orientation": "landscape",
   "background_color": "#FFF",
-  "theme_color": "#FFF"
+  "theme_color": "#FFF",
+  "version": "1.0.3",
+  "author": "bortecoder"
 }
