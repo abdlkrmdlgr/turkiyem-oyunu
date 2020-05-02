@@ -1,24 +1,30 @@
-# turkiyem
+#Nedir?
 
-## Project setup
-```
-npm install
-```
+VueJS ile yazılmış PWA oyunudur. 
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+Bu oyun Türkiye'mizin illerinde belli başlı ön plana çıkan kültürel, sosyal, coğrafi
+                    özellikklerinden yola çıkılarak hazırlanmıştır.
+                    Size gösterilen anahtar kelimelere karşılık gelen ilimizi bulmanız gerekmektedir.
 
-### Compiles and minifies for production
-```
-npm run build
-```
+#Nasıl kullanılır?
+                Zaman sayacını başlattığınızda sorular anahtar kelimeler size gösterilecektir. Zaman akarken hangi
+                    ilimize ait olduğunu bulmanız beklenmektedir.
 
-### Lints and fixes files
-```
-npm run lint
-```
+Doğru cevabı bulduğunuzda puan kazanacaksınız. Yanlış cevapta ise puan kaybedersiniz.</p>
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+#Puanlama Nasıl Olur?
+Zamana bağlı olarak kazanacağınız ve kaybedeceğiniz puan büyük olur.
+Dilediğinizde sayacın üstüne basarak süreyi durdurabilir, sonrasında tekrardan kaldığınız yerden
+                    devam edebilirsiniz.
+
+En yüksek puani yapıp, ekran görüntüsünü arkadaşlarınızla paylaşmayı unutmayın.
+
+
+
+https://turkiyem.abdulkerimdulger.com adresinden canlı önizlemesine bakabilir, oyunu oynayabilirsiniz.
+
+
+Svg Harita için;
+https://github.com/dnomak/svg-turkiye-haritasi
+reposu kullanılmıştır. 
+@dnomak'a teşekkür ederim.
