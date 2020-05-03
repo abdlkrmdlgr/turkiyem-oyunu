@@ -9,8 +9,8 @@
 
                 <span v-if="this.isPaused && this.isFinished"
                       class="badge text-wrap col-md-8 col-sm-8 col-8 font-weight-bold textSuccess">
-                    <img src="../assets/favicon-96x96.png" width="30" height="30"/>
-                    Tebrikler!!! Ülkemizi avucunun içi gibi öğrendin. Her oyunayışında farklı gelmeye devam edecek. Tekrar oynamaya ne dersin?
+                    <img src="../assets/favicon-96x96.png" width="30" height="30"/> Tebrikler... Bütün illeri tamamladın.
+
                 </span>
                 <div v-if="this.isBasariliMessage && !this.isFinished" class="badge">Tebrikler!! Doğru cevap. <span
                         class="badge bgSuccess text-white">{{this.questionPoint}}</span> kazandınız.
@@ -71,16 +71,22 @@
                  xmlns:xlink="http://www.w3.org/1999/xlink"
                  viewBox="0 0 1008 450" xml:space="preserve"
                  :class="this.disabledMapClass">
-        <g id="turkiye">
-          <Country
-                  v-for="(country, indexCounty) in this.countries"
-                  :key="indexCounty"
-                  :country="country"
-                  @countryClick="handleCountryClick"
-          ></Country>
-        </g>
-      </svg>
+            <g id="turkiye">
+              <Country
+                      v-for="(country, indexCounty) in this.countries"
+                      :key="indexCounty"
+                      :country="country"
+                      @countryClick="handleCountryClick"
+              ></Country>
+            </g>
+          </svg>
         </div>
+
+        <div class="congrats" v-if="this.isFinished">
+            <h5>Ülkeni avucunun içi gibi biliyorsun. </h5>
+            <p>Tekrar oynamak istersen sağ alttaki yenile düğmesine bas :)</p>
+        </div>
+
         <div class="il-isimleri"></div>
 
         <b-modal v-model="modalNedirShow" title="Nedir?"
@@ -172,7 +178,7 @@
                 keywordCount: 3,
                 bilinenIlPlakalari: [],
                 bilinmeyenIlPlakalari: [],
-                isFinished: false
+                isFinished: true,
             };
         },
         created() {
@@ -528,5 +534,15 @@
         -ms-user-select: none;
         user-select: none;
         pointer-events: none;
+    }
+
+    .congrats {
+        width: 100%;
+        top:25%;
+        text-align: center;
+        z-index: 100;
+        position: absolute;
+        color: white;
+        font-weight: bold;
     }
 </style>
