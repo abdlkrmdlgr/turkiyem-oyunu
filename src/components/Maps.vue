@@ -1,25 +1,22 @@
 <template>
     <div class="harita">
-        <b-navbar class="fixed-top m-0 p-0" type="light">
-            <div class="col-md-1 col-sm-1 col-1 text-center p-0">
-
-            </div>
-            <div class="col-md-9 col-sm-9 col-9 p-0">
+        <b-navbar class="fixed-top m-0 p-0 col-11" type="light" style="left:auto">
+            <div class="col-md-10 col-sm-10 col-10 p-0">
                 <span v-if="!this.isPaused && this.isQuestionText && !this.isPassQuestion && !this.isTimeout"
                       class="badge text-wrap col-md-11 col-sm-11 col-11">{{this.questionText}}</span>
                 <span v-if="this.isPaused"
-                      class="badge  text-wrap col-md-5 col-sm-5 col-5 font-weight-bold text-danger">#TÜRKİYE'M</span>
+                      class="badge  text-wrap col-md-5 col-sm-5 col-5 font-weight-bold textDanger">#TÜRKİYE'M</span>
                 <div v-if="this.isBasariliMessage" class="badge">Tebrikler!! Doğru cevap. <span
-                        class="badge badge-success">{{this.questionPoint}}</span> kazandınız.
+                        class="badge bgSuccess text-white">{{this.questionPoint}}</span> kazandınız.
                 </div>
-                <div v-if="this.isHataliMessage" class="text-danger badge">Üzgünüm!! Yanlış cevap. <span
-                        class="badge badge-danger">{{this.kaybedilenPuan}}</span> kaybettiniz.
+                <div v-if="this.isHataliMessage" class="textDanger badge">Üzgünüm!! Yanlış cevap. <span
+                        class="badge bgDanger text-white">{{this.kaybedilenPuan}}</span> kaybettiniz.
                 </div>
-                <div v-if="this.isPassQuestion" class="text-danger badge">Soruyu pas geçtiniz. <span
-                        class="badge badge-danger">{{this.kaybedilenPuan}}</span> kaybettiniz.
+                <div v-if="this.isPassQuestion" class="textDanger badge">Soruyu pas geçtiniz. <span
+                        class="badge bgDanger text-white">{{this.kaybedilenPuan}}</span> kaybettiniz.
                 </div>
-                <div v-if="this.isTimeout" class="text-danger badge">Süre içinde cevap vermediniz.. <span
-                        class="badge badge-danger">{{this.kaybedilenPuan}}</span> kaybettiniz.
+                <div v-if="this.isTimeout" class="textDanger badge">Süre içinde cevap vermediniz.. <span
+                        class="badge bgDanger text-white">{{this.kaybedilenPuan}}</span> kaybettiniz.
                 </div>
             </div>
             <div class="col-md-2 col-sm-2 col-2 text-right p-0 pr-2">
@@ -32,30 +29,35 @@
             </div>
         </b-navbar>
 
-        <b-navbar class="navbar fixed-bottom m-0 p-0 pl-2 pr-2 d-flex d-flex justify-content-between"
-                  type="light" style="left: auto; width:25%">
+        <b-navbar class="navbar fixed-bottom m-0 p-0 d-flex d-flex justify-content-between col-3 mr-2"
+                  type="light" style="left: auto;">
 
             <div>
-                <div class="btn btn-md font-weight-bold mb-0 mt-1 p-0">
-                    Puan:
-                    <span>
-                        {{this.skor}}
-                    </span><br>
-                    <span class="badge badge-success">
-                        D:{{this.dogruCevapSayisi}}
-                    </span>
-                    <span class="badge badge-danger">Y:{{this.yanlisCevapSayisi}}</span>
-                </div>
                 <BaseTimer
                         :pauseTimer="this.pauseTimer"
                         :timerResetProp="this.timerReset"
                         @timeUp="nextQuestionTimeup"
                         @calculateQuestionPoint="calculateQuestionPoint"
-                        @handlePause="handlePause" class="float-right mr-2 mb-2 ml-2"/>
+                        @handlePause="handlePause" class="float-right mb-0"/>
+
+
+                <div class="col-8 font-weight-bold mb-0 mt-0 p-0 float-right">
+                    <p class="mb-0 badge p-0">Puan: {{this.skor}}</p>
+                    <p class="mb-0">
+                        <span class="badge bgSuccess text-white">
+                            D:{{this.dogruCevapSayisi}}
+                        </span>
+                        <span class="badge bgDanger text-white">Y:{{this.yanlisCevapSayisi}}</span>
+                    </p>
+                </div>
+
+                <div class="badge bgWarning align-items-end col-10 mb-0 text-center font-weight-bold float-right mb-1">
+                    Şehir: {{this.bilinenIlPlakalari.length}}/{{this.bilinmeyenIlPlakalari.length}}
+                </div>
             </div>
         </b-navbar>
 
-        <div class="svg-turkiye-haritasi mt-4">
+        <div class="svg-turkiye-haritasi mt-3">
             <svg version="1.1" id="svg-turkiye-haritasi" xmlns="http://www.w3.org/2000/svg"
                  xmlns:xlink="http://www.w3.org/1999/xlink"
                  viewBox="0 0 1008 450" xml:space="preserve"
@@ -135,7 +137,7 @@
                 countries: countryJson,
                 meshurSeyler: "",
                 questionText: "",
-                questionIndex: null,
+                questionsPlaka: null,
                 skor: 0,
                 timerReset: "false",
                 questionPoint: 3,
@@ -153,7 +155,11 @@
                 yanlisCevapSayisi: 0,
                 soruyaVerilenYanlisCevapSayisi: 0,
                 yanlisCevapHakki: 3,
-                keywordCount: 3
+                keywordCount: 3,
+                bilinenIlPlakalari: [],
+                bilinmeyenIlPlakalari: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30,
+                    31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60,
+                    61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81],
             };
         },
         created() {
@@ -162,6 +168,8 @@
             //     .then(json => {
             //         this.meshurSeyler = json;
             //     });
+
+            this.bilinmeyenIlPlakalari = this.shuffle(this.bilinmeyenIlPlakalari);
         },
         mounted() {
             this.meshurSeyler = meshurSeylerJson;
@@ -201,11 +209,15 @@
                 );
             },
             handleCountryClick: function (item) {
-                if ((item.$el.attributes.plaka.value - 1) === this.questionIndex) {
+                if (parseInt(item.$el.attributes.plaka.value) === this.questionsPlaka) {
                     //Doğru cevap geldi.
                     $("." + item.$el.attributes.id.value + " path")[0].classList.add("fillSuccess");
                     $("." + item.$el.attributes.id.value + " path")[0].classList.remove("fillDefault");
                     this.skor += this.questionPoint;
+
+                    this.bilinenIlPlakalari.push(this.questionsPlaka);
+                    this.bilinmeyenIlPlakalari.splice(0, 1);
+
                     this.passQuestion();
 
                     this.isBasariliMessage = true;
@@ -257,6 +269,7 @@
             passQuestion: function () {
                 this.soruyaVerilenYanlisCevapSayisi = 0;
                 setTimeout(() => {
+                    this.comeToEnd();
                     this.nextQuestion();
                 }, 1000);
                 this.timerReset = new Date().getTime().toString();
@@ -270,38 +283,41 @@
                 this.skor -= 1;
                 this.kaybedilenPuan = 1;
                 this.isPassQuestion = true;
+                this.comeToEnd();
                 setTimeout(this.nextQuestion, 1000);
             },
             nextQuestionTimeup: function () {
                 this.skor -= 2;
                 this.kaybedilenPuan = 2;
                 this.isTimeout = true;
-                // this.passQuestion();
-
+                this.comeToEnd();
                 this.showCorrectAnswerAndPassQuestion();
 
             },
-            showCorrectAnswerAndPassQuestion:function(){
+            comeToEnd: function () {
+                let buPlaka = this.bilinmeyenIlPlakalari[0];
+                this.bilinmeyenIlPlakalari.splice(0, 1);
+                this.bilinmeyenIlPlakalari.push(buPlaka);
+            },
+            showCorrectAnswerAndPassQuestion: function () {
                 if (this.soruyaVerilenYanlisCevapSayisi === this.yanlisCevapHakki || this.isTimeout) {
 
                     //Bilemediği durumda cevabı göster ve sonraki soruya geç.
-                    const plaka = this.questionIndex < 9 ? "0" + (this.questionIndex + 1) : parseInt(this.questionIndex) + 1;
-
+                    const plaka = this.bilinmeyenIlPlakalari[0]<10?"0"+this.bilinmeyenIlPlakalari[0]:this.bilinmeyenIlPlakalari[0];
                     var correctAnswersCountryElement = $("g [plaka='" + plaka + "'] path")[0];
-                    correctAnswersCountryElement.classList.add("fillSuccess");
+                    correctAnswersCountryElement.classList.add("fillWarning");
                     correctAnswersCountryElement.classList.remove("fillDefault");
 
-
                     const correctAnswerCountryName = $("g [plaka='" + plaka + "']").attr("adi");
-                    $(".il-isimleri").html("<div>"+correctAnswerCountryName+"</div>");
+                    $(".il-isimleri").html("<div>" + correctAnswerCountryName + "</div>");
 
                     let countryNameTopPosition = correctAnswersCountryElement.getBoundingClientRect().top;
                     let countryNameLeftPosition = correctAnswersCountryElement.getBoundingClientRect().left;
-                    $(".il-isimleri").css("top",countryNameTopPosition+20+"px");
-                    $(".il-isimleri").css("left",countryNameLeftPosition+40+"px");
+                    $(".il-isimleri").css("top", countryNameTopPosition + 20 + "px");
+                    $(".il-isimleri").css("left", countryNameLeftPosition + 40 + "px");
 
                     setTimeout(() => {
-                        correctAnswersCountryElement.classList.remove("fillSuccess");
+                        correctAnswersCountryElement.classList.remove("fillWarning");
                         correctAnswersCountryElement.classList.add("fillDefault");
                         $(".il-isimleri").html("");
                     }, 1000);
@@ -309,16 +325,9 @@
                 }
             },
             nextQuestion: function () {
-
-                $(".countryPath").each(function () {
-                    $(this)[0].classList.remove("fillSuccess");
-                    $(this)[0].classList.add("fillDefault");
-                });
-
-                let plaka = this.getRandomPlaka(1, 81);
-                let meshurSeyTextRandom = this.getMeshurSeylerBy(plaka);
+                this.questionsPlaka = this.bilinmeyenIlPlakalari[0];
+                let meshurSeyTextRandom = this.getMeshurSeylerBy(this.questionsPlaka);
                 this.questionText = meshurSeyTextRandom;
-                this.questionIndex = plaka - 1;
                 this.isPassQuestion = false;
                 this.isTimeout = false;
             },
@@ -329,9 +338,6 @@
             getMeshurSeylerBy(plaka) {
                 let meshurSeylerRandom = this.shuffle(this.meshurSeyler[plaka - 1].meshurSeyleri);
                 return meshurSeylerRandom.slice(0, this.keywordCount).join(", ");
-            },
-            getRandomPlaka: function (min, max) {
-                return Math.floor(Math.random() * max) + min;
             },
             calculateQuestionPoint: function (point) {
                 this.questionPoint = point;
@@ -385,12 +391,41 @@
     }
 
     .fillSuccess {
-        fill: darkgreen !important;
+        fill: #2b6442 !important;
     }
 
     .fillDefault {
         fill: #e04848 !important;
     }
+
+    .fillWarning {
+        fill: #d5d167 !important;
+    }
+
+    .textSuccess {
+        color: #2b6442;
+    }
+
+    .textWarning {
+        color: #d5d167;
+    }
+
+    .textDanger {
+        color: #e04848;
+    }
+
+    .bgSuccess {
+        background-color: #2b6442
+    }
+
+    .bgDanger {
+        background-color: #e04848
+    }
+
+    .bgWarning {
+        background-color: #d5d167
+    }
+
 
     .fillClick {
         fill: #e9e5e7 !important;

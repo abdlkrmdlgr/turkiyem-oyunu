@@ -42,7 +42,7 @@
         }
     };
 
-    const TIME_LIMIT = 30;
+    const TIME_LIMIT = 20;
 
     export default {
         data() {
@@ -101,7 +101,7 @@
                 if (newValue === 0) {
                     this.onTimesUp();
                 }
-                this.$emit("calculateQuestionPoint", Math.ceil(newValue/10));
+                this.$emit("calculateQuestionPoint", Math.ceil(newValue/7));
 
             },
             timerResetProp: {
@@ -181,15 +181,15 @@
             stroke: currentColor;
 
             &.green {
-                color: rgb(65, 184, 131);
+                color: rgb(64, 149, 97);
             }
 
             &.orange {
-                color: orange;
+                color: #d5d167;
             }
 
             &.red {
-                color: red;
+                color: #e04848;
             }
         }
 
@@ -201,7 +201,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 14px;
+            font-size: 18px;
         }
     }
 </style>
