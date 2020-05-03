@@ -331,7 +331,7 @@
                 return meshurSeylerRandom.slice(0, this.keywordCount).join(", ");
             },
             getRandomPlaka: function (min, max) {
-                return Math.floor(Math.random() * (max - min)) + min;
+                return Math.floor(Math.random() * max) + min;
             },
             calculateQuestionPoint: function (point) {
                 this.questionPoint = point;
