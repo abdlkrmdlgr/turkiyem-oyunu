@@ -91,7 +91,7 @@
                 <p class="text-right small">
                     <a href="https://twitter.com/bortecoder">@bortecoder</a>
                     <br>
-                    <span class="badge badge-muted text-white">v1.0.4</span>
+                    <span class="badge badge-muted text-white">v1.0.5</span>
                 </p>
                 <p><b>Nedir? </b></p>
                 <p>Bu oyun Türkiye'mizin illerinde belli başlı ön plana çıkan kültürel, sosyal, coğrafi
@@ -170,7 +170,7 @@
                 keywordCount: 3,
                 bilinenIlPlakalari: [],
                 bilinmeyenIlPlakalari: [],
-                isFinished: true,
+                isFinished: false
             };
         },
         created() {
@@ -434,7 +434,7 @@
 </script>
 <style>
     .svg-turkiye-haritasi {
-        max-width: 1140px;
+        /*max-width: 1140px;*/
         margin: 0 auto;
         text-align: center;
     }
