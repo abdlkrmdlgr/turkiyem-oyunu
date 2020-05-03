@@ -9,8 +9,8 @@
 
                 <span v-if="this.isPaused && this.isFinished"
                       class="badge text-wrap col-md-8 col-sm-8 col-8 font-weight-bold textSuccess">
-                    <img src="../assets/favicon-96x96.png" width="30" height="30"/> Tebrikler... Bütün illeri tamamladın.
-
+                    <img src="../assets/favicon-96x96.png" width="30" height="30"/>
+                    Tebrikler!!! Ülkemizi avucunun içi gibi öğrendin. Her oyunayışında farklı gelmeye devam edecek. Tekrar oynamaya ne dersin?
                 </span>
                 <div v-if="this.isBasariliMessage && !this.isFinished" class="badge">Tebrikler!! Doğru cevap. <span
                         class="badge bgSuccess text-white">{{this.questionPoint}}</span> kazandınız.
@@ -82,13 +82,7 @@
           </svg>
         </div>
 
-        <div class="congrats" v-if="this.isFinished">
-            <h5>Ülkeni avucunun içi gibi biliyorsun. </h5>
-            <p>Tekrar oynamak istersen sağ alttaki yenile düğmesine bas :)</p>
-        </div>
-
         <div class="il-isimleri"></div>
-
         <b-modal v-model="modalNedirShow" title="Nedir?"
                  :centered=true :scrollable=true headerCloseLabel="Kapat" :hide-footer="true"
                  aria-label="Emzirme Kaydı"
@@ -124,8 +118,6 @@
                 <p>İyi eğlenceler dilerim.</p>
             </div>
         </b-modal>
-
-
     </div>
 </template>
 
@@ -534,15 +526,5 @@
         -ms-user-select: none;
         user-select: none;
         pointer-events: none;
-    }
-
-    .congrats {
-        width: 100%;
-        top:25%;
-        text-align: center;
-        z-index: 100;
-        position: absolute;
-        color: white;
-        font-weight: bold;
     }
 </style>
