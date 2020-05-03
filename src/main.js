@@ -17,9 +17,10 @@ import {
     faCode,
     faSearch,
     faThumbtack,
-    faHourglassStart, faHourglassHalf, faHourglassEnd,faHourglass,
+    faHourglassStart, faHourglassHalf, faHourglassEnd, faHourglass,
     faEllipsisH, faEllipsisV,
-    faRandom, faMedal,faPlay
+    faRandom, faMedal, faPlay, faSync,
+    faInfo, faInfoCircle,
 } from "@fortawesome/free-solid-svg-icons";
 
 library.add(
@@ -30,10 +31,10 @@ library.add(
     faCode,
     faSearch,
     faThumbtack,
-    faHourglassStart, faHourglassHalf, faHourglassEnd,faHourglass,
+    faHourglassStart, faHourglassHalf, faHourglassEnd, faHourglass,
     faEllipsisH, faEllipsisV,
-    faRandom,faMedal,faPlay
-
+    faRandom, faMedal, faPlay, faSync,
+    faInfo, faInfoCircle
 );
 Vue.component("FontAwesomeIcon", FontAwesomeIcon);
 

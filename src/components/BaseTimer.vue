@@ -18,7 +18,10 @@
         </svg>
         <p class="base-timer__label" @click="handlePause">
             <span v-if="!this.isPaused" class="font-weight-bold" :style="`color:${this.remainingPathColor}`">{{ formattedTimeLeft }}</span>
-            <span v-if="this.isPaused" :style="`color:${this.remainingPathColor}`"><FontAwesomeIcon icon="play"/></span>
+            <span v-if="this.isPaused" :style="`color:${this.remainingPathColor}`">
+                <FontAwesomeIcon icon="play" v-if="!this.isFinished"/>
+                <FontAwesomeIcon icon="sync" v-if="this.isFinished"/>
+            </span>
         </p>
     </div>
 </template>
@@ -49,12 +52,13 @@
             return {
                 timePassed: 0,
                 timerInterval: null,
-                isPaused:true
+                isPaused: true
             };
         },
-        props:{
-            timerResetProp:String,
-            pauseTimer: Boolean
+        props: {
+            timerResetProp: String,
+            pauseTimer: String,
+            isFinished:Boolean
         },
         computed: {
             circleDasharray() {
@@ -84,7 +88,7 @@
             },
 
             remainingPathColor() {
-                const { alert, warning, info } = COLOR_CODES;
+                const {alert, warning, info} = COLOR_CODES;
 
                 if (this.timeLeft <= alert.threshold) {
                     return alert.color;
@@ -101,14 +105,14 @@
                 if (newValue === 0) {
                     this.onTimesUp();
                 }
-                this.$emit("calculateQuestionPoint", Math.ceil(newValue/7));
+                this.$emit("calculateQuestionPoint", Math.ceil(newValue / 7));
 
             },
             timerResetProp: {
                 immediate: true,
                 deep: true,
                 handler() {
-                    this.timePassed=0;
+                    this.timePassed = 0;
                 }
             },
             pauseTimer: {
@@ -116,13 +120,13 @@
                 deep: true,
                 handler() {
                     clearInterval(this.timerInterval);
-                    this.isPaused=true;
+                    this.isPaused = true;
                 }
             }
         },
 
         mounted() {
-            if (!this.isPaused)
+            if (!this.isPaused &&!this.isFinished)
                 this.startTimer();
         },
 
@@ -130,22 +134,29 @@
             onTimesUp() {
                 clearInterval(this.timerInterval);
                 this.$emit("timeUp");
-                this.timePassed=0;
+                this.timePassed = 0;
                 this.startTimer();
             },
 
             startTimer() {
                 this.timerInterval = setInterval(() => (this.timePassed += 1), 1000);
             },
-            handlePause:function () {
-                if (!this.isPaused)
+            handlePause: function () {
+                if (!this.isFinished) {
+                    if (!this.isPaused)
+                        clearInterval(this.timerInterval);
+                    else
+                        this.startTimer();
+
+                    this.isPaused = !this.isPaused
+
+                    this.$emit("handlePause", this.isPaused);
+                }else{
+                    this.isPaused = true;
                     clearInterval(this.timerInterval);
-                else
-                    this.startTimer();
-
-                this.isPaused=!this.isPaused
-
-                this.$emit("handlePause", this.isPaused);
+                    this.timePassed = 0;
+                    this.$emit("handleReset");
+                }
             }
         }
     };

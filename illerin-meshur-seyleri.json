@@ -17,7 +17,10 @@
       "Çukurova",
       "Beyaz Altın",
       "Delta Ovası",
-      "Anavarza Kalesi"
+      "Anavarza Kalesi",
+      "Portakal Çiçeği Festivali",
+      "Aladağlar",
+      "Kitvanza Krallığı"
     ]
   },
   {
@@ -25,7 +28,20 @@
     "adi": "Adıyaman",
     "meshurSeyleri": [
       "Besni Üzümü",
-      "Nemrut Dağı"
+      "Nemrut Dağı",
+      "Atiye",
+      "Atatürk Barajı",
+      "Altın Elma Ödülü",
+      "Şilki Tatlısı",
+      "Harfane Geceleri",
+      "Çiğ Köfte",
+      "Perre Antik Kenti",
+      "Vijne Köprüsü",
+      "Yarpuz Salatası",
+      "Turuş Kaya Mezarı",
+      "Zey Mağaraları",
+      "Cendere Kanyonu",
+      "Palanlı Mağarası"
     ]
   },
   {
@@ -35,7 +51,15 @@
       "Kaymak",
       "Sucuk",
       "Kaplıca",
-      "Mermer"
+      "Mermer",
+      "Kadınana Efsanesi",
+      "Eber Gölü",
+      "Flamingo Gözlemevi",
+      "Haşhaş",
+      "Ayazini",
+      "Göynüş Vadisi",
+      "Frig Vadisi",
+      "Bütük Taarruz Şehitliği"
     ]
   },
   {
@@ -45,7 +69,12 @@
       "Dağı",
       "İshak Paşa Sarayı",
       "Abdigor Köftesi",
-      "Goşteberg Et"
+      "Goşteberg Et",
+      "Nuh'un Gemisi",
+      "Serbulak Geçidi",
+      "Buz Mağarası",
+      "Meya (Günbuldü) Mağarası",
+      "Selekeli"
     ]
   },
   {
@@ -55,7 +84,18 @@
       "Elma",
       "Kalesi",
       "Kral Kaya Mezarları",
-      "Darüşşifa"
+      "Darüşşifa",
+      "Yeşilırmak",
+      "Kayık Gezisi",
+      "Hazeranlar Konağı",
+      "Ferhat Su Kanalı",
+      "Kızlar Sarayı",
+      "Ayva Gallesi",
+      "Şeker Böreği",
+      "Yedikuğular Kuş Cenneti",
+      "Borabay Gölü",
+      "Yelleme Oyunu",
+      "Sim Sim Oyunu"
     ]
   },
   {
@@ -64,7 +104,22 @@
     "meshurSeyleri": [
       "Tava Yemeği",
       "Tiftik Keçisi",
-      "Anıtkabir"
+      "Anıtkabir",
+      "Eymir ve Mogan",
+      "Augustus Tapınağı",
+      "Aslanlı Yol",
+      "Yassıhöyük-Gordion",
+      "Akköprü",
+      "Etnografya Müzesi",
+      "Anadolu Medeniyetleri Müzesi",
+      "Tacettin Dergahı",
+      "MTA- Tabiat Tarihi Müzesi",
+      "Ulucanlar Ceza Evi",
+      "Erimtan",
+      "Beypazarı Kurusu",
+      "Seğmenler",
+      "Sevgi Çiçeği",
+      "Kalecik Karası"
     ]
   },
   {
@@ -72,11 +127,19 @@
     "adi": "Antalya",
     "meshurSeyleri": [
       "Düden Şelalesi",
-      "Karain Mağaraları",
+      "Karain Mağarası",
       "Turizm",
       "Muz",
       "Yivli Minare",
-      "Turunçgil ve Seracılık"
+      "Turunçgil ve Seracılık",
+      "Portakal",
+      "Sera",
+      "Manavgat Şelalesi",
+      "Hadrian Kapısı",
+      "Termessos Antik Kenti",
+      "Perge Antik Kenti",
+      "Aspendos",
+      "Olimpos"
     ]
   },
   {
@@ -85,7 +148,15 @@
     "meshurSeyleri": [
       "Barhal Kilisesi",
       "Sarp Sınır Kapısı",
-      "Çoruh Nehri"
+      "Çoruh Nehri",
+      "Aranduç Gevhernik Kalesi",
+      "Cehennem Deresi Kanyonu",
+      "Kaçkarlar",
+      "Altıparmak Dağları",
+      "Rafting",
+      "Karagöl",
+      "Puçuko",
+      "Barhal Kilisesi"
     ]
   },
   {
@@ -97,18 +168,35 @@
       "Menderes",
       "Ova",
       "Altınkum",
-      "Antik Kent"
+      "Antik Kent",
+      "Güvercin Adası",
+      "Zeus Mağarası",
+      "Karakaya Mağarası",
+      "Akbük",
+      "Didim",
+      "Arap Apıştı Kanyonu",
+      "Paşa Yaylası",
+      "Bafa Gölü",
+      "Milet",
+      "Nysa Antik Kenti",
+      "Prienne Antik Kenti",
+      "Tralles Antik Kenti",
+      "Yörük Ali Efe",
+      "Apollon Tapınağı"
     ]
   },
   {
     "plaka": "10",
     "adi": "Balıkesir",
     "meshurSeyleri": [
-      "Ayranı",
-      "Tostu",
+      "Ayran",
+      "Tost",
       "Manyas Gölü",
       "Zeytin",
-      "Höşmerim"
+      "Höşmerim",
+      "Zağnos Paşa Camisi",
+      "Kaz Dağı(İda) Milli Parkı",
+      "Atatürk Kayalıkları"
     ]
   },
   {
@@ -117,7 +205,11 @@
     "meshurSeyleri": [
       "Mehmet Paşa Kervansarayı",
       "Kınık Şelalesi",
-      "Bıldırcın Kebabı"
+      "Bıldırcın Kebabı",
+      "Söğüt Şenlikleri",
+      "Kayı",
+      "Şeyh Edebali Türbesi",
+      "Ertuğrul Gazi Türbesi"
     ]
   },
   {
@@ -125,7 +217,16 @@
     "adi": "Bingöl",
     "meshurSeyleri": [
       "Yüzen Ada",
-      "Ayran Çorbası"
+      "Ayran Çorbası",
+      "Gayt Kalesi",
+      "Kartal Halk Oyunu",
+      "Yolaçtı Kayak Merkezi",
+      "Gayt ve Çapakçur Çayı",
+      "Kös Kaplıcaları",
+      "Löl Yemeği",
+      "Mastuva Yemeği",
+      "Sırına Pel",
+      "Gömme Keldoş"
     ]
   },
   {
@@ -133,7 +234,13 @@
     "adi": "Bitlis",
     "meshurSeyleri": [
       "Büryan",
-      "Mezar Taşları"
+      "Seçuklu Mezar Taşları",
+      "İhlasiye Medresesi",
+      "Nemrut Gölü",
+      "Ceviz",
+      "Ahlat Kümbetleri",
+      "Hizan Fındığı",
+      "Şerefiye Külliyesi"
     ]
   },
   {
@@ -141,7 +248,15 @@
     "adi": "Bolu",
     "meshurSeyleri": [
       "Aşçı",
-      "Yedi Göller"
+      "Yedigöller Milli Parkı",
+      "Abant Gölü",
+      "Aladağlar",
+      "Akkaya Travertenleri",
+      "Kartalkaya Kayak Merkezi",
+      "Köroğlu",
+      "Fındık Şekeri",
+      "İmaret Çorbası",
+      "Acı Su Bazlamacı"
     ]
   },
   {
@@ -151,7 +266,13 @@
       "Sagalassos Antik Kenti",
       "Bedelli Askerlik",
       "İnsuyu Mağarası",
-      "Salda Gölü"
+      "Salda Gölü",
+      "Hacılar Büyük Höyük",
+      "Karanlık Dere Kanyonu",
+      "Kibyra Antik Kenti",
+      "Medusa Mozaiği",
+      "Kremna Antik Kenti",
+      "Alaca Dokuma"
     ]
   },
   {
@@ -162,7 +283,17 @@
       "Şeftali",
       "Ulu Cami",
       "Uludağ",
-      "Karagöz ve Hacivat"
+      "Karagöz ve Hacivat",
+      "Cantık",
+      "Kozahan Kapalı Çarşı",
+      "İpek",
+      "Uluabat Gölü",
+      "Hilmiye Mağarası",
+      "Tophane",
+      "Sadağı Kanyonu",
+      "Cumalıkızık",
+      "Uludağ",
+      "Gölyazı"
     ]
   },
   {
@@ -174,33 +305,64 @@
       "18 Mart",
       "Boğaz",
       "Assos",
-      "Truva"
+      "Truva",
+      "Sardalya",
+      "Feribot",
+      "Kilitbahir Kalesi",
+      "Çimenlik Kalesi",
+      "Conkbayırı",
+      "Bozcaada",
+      "Gökçeada",
+      "Rüzgar",
+      "Kazdağları",
+      "Behramkale",
+      "Ayazma"
     ]
   },
   {
     "plaka": "18",
-    "adi": "Çanakkale",
+    "adi": "Çankırı",
     "meshurSeyleri": [
       "Taşmescit",
-      "Kayatuzu"
+      "Kayatuzu",
+      "Eldivan Lalesi",
+      "Ilgaz",
+      "Tuz Mağarası",
+      "Buğday Pazarı Medresesi",
+      "Tarihi İstiklal Yolu"
     ]
   },
   {
     "plaka": "19",
     "adi": "Çorum",
     "meshurSeyleri": [
-      "Hattuşaş",
-      "Leblebi"
+      "Hattuşa",
+      "Leblebi",
+      "Alacahöyük",
+      "Hattuşa Aslanlı Kapı",
+      "Koyunbaba Köprüsü",
+      "İncesu Kanyonu",
+      "Hitit",
+      "İskilip Dolması",
+      "Kargı Bezi"
     ]
   },
   {
     "plaka": "20",
-    "adi": "Denizle",
+    "adi": "Denizli",
     "meshurSeyleri": [
       "Traverten",
       "Horoz",
       "Kiraz",
-      "Dokuma"
+      "Dokuma",
+      "Laodikya Antik Kenti",
+      "Hierapolis Antik Kenti",
+      "Karahayıt",
+      "Kedi Börülcesi Çorbası",
+      "Şipit Yemeği",
+      "Buldan Bezi",
+      "Güney Şelalesi",
+      "Çameli Yaylası"
     ]
   },
   {
@@ -209,7 +371,12 @@
     "meshurSeyleri": [
       "Karpuz",
       "Malabadi Köprüsü",
-      "Sur"
+      "Sur",
+      "Birkleyn Mağarası",
+      "Çermik Kaplıcası",
+      "Çayönü Tepesi",
+      "Grikihaciyan Tepesi",
+      "Burma Kadayıf"
     ]
   },
   {
@@ -218,7 +385,11 @@
     "meshurSeyleri": [
       "Selimiye Cami",
       "Kırkpınar Yağlı Güreşleri",
-      "Uzunköprü"
+      "Uzunköprü",
+      "Tava Ciğer",
+      "Meriç",
+      "Mimar Sinan",
+      "Mamzana"
     ]
   },
   {
@@ -227,7 +398,10 @@
     "meshurSeyleri": [
       "Harput Kalesi",
       "Keban Barajı",
-      "Çaydaçıra Halk Oyunu"
+      "Çaydaçıra Halk Oyunu",
+      "Kara Leylek Kanyonu",
+      "Saklıkapı Kanyonu",
+      "Fırat Nehri"
     ]
   },
   {
@@ -235,7 +409,10 @@
     "adi": "Erzincan",
     "meshurSeyleri": [
       "Tulum Peyniri",
-      "Girlevik Şelalesi"
+      "Girlevik Şelalesi",
+      "Ergan Dağı",
+      "Altıntepe",
+      "Gasefe Yemeği"
     ]
   },
   {
@@ -245,7 +422,20 @@
       "Cağ Kebabı",
       "Palandöken",
       "Çifte Minareli Medrese",
-      "Oltu Taşı"
+      "Oltu Taşı",
+      "Yakutiye Medresesi",
+      "Çoban Dede Köprüsü",
+      "Atabarı",
+      "Tortum Şelalesi",
+      "Narman Peribacaları",
+      "Oltu Taşı Tespih",
+      "Dut Çullaması",
+      "Lor Dolması",
+      "Çortutu Pancarı",
+      "Kadayıf Dolması",
+      "Tortum Gölü",
+      "Hınıs Kanyonu",
+      "İspir Fasulyesi"
     ]
   },
   {
@@ -268,7 +458,9 @@
       "Fıstık",
       "Baklava",
       "Zeugma Antik Kenti",
-      "Gastronomi"
+      "Gastronomi",
+      "Çingene Kızı Mozaiği",
+      "Rumkale"
     ]
   },
   {
@@ -668,7 +860,8 @@
     "meshurSeyleri": [
       "Taşkömürü",
       "Cehennemağzı",
-      "İnağzı Mağaraları"
+      "İnağzı Mağaraları",
+      "Kara Elmas"
     ]
   },
   {
@@ -693,8 +886,7 @@
     "adi": "Karaman",
     "meshurSeyleri": [
       "Hatuniye Medresesi",
-      "Koyun",
-      "Kara Elmas"
+      "Koyun"
     ]
   },
   {
