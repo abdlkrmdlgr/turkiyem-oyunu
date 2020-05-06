@@ -45,7 +45,7 @@
         }
     };
 
-    const TIME_LIMIT = 20;
+    const TIME_LIMIT = 15;
 
     export default {
         data() {
@@ -105,7 +105,7 @@
                 if (newValue === 0) {
                     this.onTimesUp();
                 }
-                this.$emit("calculateQuestionPoint", Math.ceil(newValue / 7));
+                this.$emit("calculateQuestionPoint", Math.ceil(newValue / 5));
 
             },
             timerResetProp: {
