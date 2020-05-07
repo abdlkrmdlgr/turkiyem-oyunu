@@ -38,17 +38,19 @@
         <!-- HEADER NAVBAR END -->
 
         <!-- FOOTER NAVBAR START-->
-        <b-navbar class="navbar fixed-bottom m-0 p-0 d-flex d-flex justify-content-between col-12 mr-2"
-                  type="light" style="left: auto;">
-
-            <div class="col-8 text-left">
+        <b-navbar class="navbar fixed-bottom col-2 mr-2"
+                  type="light" style="left: 0;">
+            <div class="col-4 text-left mt-5">
                 <span class="h6 p-2 badge bgSuccess text-white">
                     <FontAwesomeIcon icon="clock"/>
                     {{this.toplamSure}}
                 </span>
             </div>
+        </b-navbar>
 
-            <div class="col-4">
+        <b-navbar class="navbar fixed-bottom m-0 p-0 d-flex d-flex justify-content-between col-md-2 col-sm-4 col-4 mr-2"
+                  type="light" style="left: auto;">
+            <div class="col-12">
                 <BaseTimer
                         :pauseTimer="this.pauseTimer"
                         :timerResetProp="this.timerReset"
@@ -316,7 +318,7 @@
                 finishedSound: require("../assets/sound/finishedAllCountry.wav"),
                 passQuestionSound: require("../assets/sound/passQuestion.wav"),
                 settings: {},
-                totalTime:0
+                totalTime: 0
             };
         },
         created() {
@@ -343,10 +345,10 @@
             this.nextQuestion();
 
             var appvue = this;
-            document.addEventListener("blur",function () {
+            document.addEventListener("blur", function () {
                 appvue.handleBlurEvent();
             });
-            document.addEventListener("focus",function () {
+            document.addEventListener("focus", function () {
                 appvue.handleFocusEvent();
             });
 
@@ -355,15 +357,15 @@
             disabledMap: function () {
                 return "disabledMap"
             },
-            toplamSure:function () {
-                let minutes = Math.floor(this.totalTime/60);
+            toplamSure: function () {
+                let minutes = Math.floor(this.totalTime / 60);
                 let seconds = this.totalTime % 60;
-                if (minutes>0){
-                    if (seconds<10){
-                        seconds = "0"+seconds;
+                if (minutes > 0) {
+                    if (seconds < 10) {
+                        seconds = "0" + seconds;
                     }
-                    return minutes+":"+seconds;
-                }else{
+                    return minutes + ":" + seconds;
+                } else {
                     return seconds;
                 }
             }
@@ -526,7 +528,7 @@
                     this.comeToEnd();
                     this.nextQuestion();
                     this.timerReset = new Date().getTime().toString();
-                    this.playSound(this.passQuestionSound,1);
+                    this.playSound(this.passQuestionSound, 1);
                 }, 1000);
             },
             handleNedirModal: function () {
@@ -650,13 +652,13 @@
                 localStorage.setItem("turkiyemSettings", JSON.stringify(settings));
                 this.settings = settings;
             },
-            handleBlurEvent:function () {
+            handleBlurEvent: function () {
                 this.pauseTimerEvent();
             },
-            handleFocusEvent:function () {
+            handleFocusEvent: function () {
 
             },
-            handleTimerTick:function () {
+            handleTimerTick: function () {
                 this.totalTime += 1;
             }
         }
