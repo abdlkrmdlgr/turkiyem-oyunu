@@ -333,6 +333,15 @@
             this.meshurSeyler = meshurSeylerJson;
             this.svgturkiyeharitasi();
             this.nextQuestion();
+
+            var appvue = this;
+            document.addEventListener("blur",function () {
+                appvue.handleBlurEvent();
+            });
+            document.addEventListener("focus",function () {
+                appvue.handleFocusEvent();
+            });
+
         },
         computed: {
             disabledMap: function () {
@@ -608,7 +617,6 @@
                     this.settings.keywordCount += interval;
             },
             handleNedirDialogHide: function () {
-                console.log(this.settings);
                 localStorage.setItem("turkiyemSettings", JSON.stringify(this.settings));
             },
             loadDefaultSettings: function () {
@@ -621,6 +629,12 @@
                 };
                 localStorage.setItem("turkiyemSettings", JSON.stringify(settings));
                 this.settings = settings;
+            },
+            handleBlurEvent:function () {
+                this.pauseTimerEvent();
+            },
+            handleFocusEvent:function () {
+
             }
         }
     }
