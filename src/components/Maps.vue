@@ -97,8 +97,7 @@
                  no-close-on-esc
                  aria-label="Gelişmi"
                  no-button
-                 @hide="handleNedirDialogHide"
-        >
+                 @hide="handleNedirDialogHide">
 
             <div class="col-md-12 small">
                 <button type="button" aria-label="Kapat" class="close" @click="modalNedirShow=!modalNedirShow">×
@@ -307,6 +306,7 @@
                 wrongSound: require("../assets/sound/wrongSound.wav"),
                 showCorrectAnswerSound: require("../assets/sound/showCorrectAnswerSound.wav"),
                 finishedSound: require("../assets/sound/finishedAllCountry.wav"),
+                passQuestionSound: require("../assets/sound/passQuestion.wav"),
                 settings: {}
 
             };
@@ -387,8 +387,8 @@
 
                 if (parseInt(item.$el.attributes.plaka.value) === this.questionsPlaka) {
 
-                    if (this.bilinenIlPlakalari.length > 1)
-                        this.playSound(this.correctSound);
+                    if (this.bilinmeyenIlPlakalari.length > 1)
+                        this.playSound(this.correctSound, 0.2);
 
                     //Doğru cevap geldi.
                     $("." + item.$el.attributes.id.value + " path").each(function () {
@@ -496,8 +496,9 @@
                 setTimeout(() => {
                     this.comeToEnd();
                     this.nextQuestion();
+                    this.timerReset = new Date().getTime().toString();
+                    this.playSound(this.passQuestionSound,1);
                 }, 1000);
-                this.timerReset = new Date().getTime().toString();
             },
             handleNedirModal: function () {
                 this.modalNedirShow = !this.modalNedirShow;
@@ -512,9 +513,7 @@
             passQuestionManuel: function () {
                 this.skor -= 1;
                 this.kaybedilenPuan = 1;
-                this.isPassQuestion = true;
-                this.comeToEnd();
-                setTimeout(this.nextQuestion, 1000);
+                this.passQuestion();
             },
             nextQuestionTimeup: function () {
 
@@ -546,7 +545,7 @@
 
                 if (this.soruyaVerilenYanlisCevapSayisi === this.yanlisCevapHakki || this.isTimeout) {
 
-                    this.playSound(this.showCorrectAnswerSound);
+                    this.playSound(this.showCorrectAnswerSound, 0.2);
 
                     this.isDisabledMap = true;
                     //Bilemediği durumda cevabı göster ve sonraki soruya geç.
@@ -559,9 +558,7 @@
                     });
 
                     this.showCountryName(plaka);
-
                     setTimeout(() => {
-
                         correctAnswersCountryElement.each(function () {
                             this.classList.remove("fillWarning");
                             this.classList.add("fillDefault");
