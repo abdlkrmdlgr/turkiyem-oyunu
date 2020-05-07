@@ -139,7 +139,11 @@
             },
 
             startTimer() {
-                this.timerInterval = setInterval(() => (this.timePassed += 1), 1000);
+                var appvue = this;
+                this.timerInterval = setInterval(function () {
+                    appvue.$emit("timerTick");
+                    appvue.timePassed += 1;
+                }, 1000);
             },
             handlePause: function () {
                 if (!this.isFinished) {

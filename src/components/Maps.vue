@@ -38,9 +38,17 @@
         <!-- HEADER NAVBAR END -->
 
         <!-- FOOTER NAVBAR START-->
-        <b-navbar class="navbar fixed-bottom m-0 p-0 d-flex d-flex justify-content-between col-3 mr-2"
+        <b-navbar class="navbar fixed-bottom m-0 p-0 d-flex d-flex justify-content-between col-12 mr-2"
                   type="light" style="left: auto;">
-            <div>
+
+            <div class="col-8 text-left">
+                <span class="h6 p-2 badge bgSuccess text-white">
+                    <FontAwesomeIcon icon="clock"/>
+                    {{this.toplamSure}}
+                </span>
+            </div>
+
+            <div class="col-4">
                 <BaseTimer
                         :pauseTimer="this.pauseTimer"
                         :timerResetProp="this.timerReset"
@@ -49,13 +57,13 @@
                         @calculateQuestionPoint="calculateQuestionPoint"
                         @handlePause="handlePause"
                         @handleReset="handleReset"
+                        @timerTick="handleTimerTick"
                         class="float-right mb-0"/>
-
 
                 <div class="col-8 font-weight-bold mb-0 mt-0 p-0 float-right">
                     <p class="mb-0 badge p-0">Puan: {{this.skor}}</p>
                     <p class="mb-0">
-                        <span class="badge bgSuccess text-white">
+                        <span class="badge bgSuccess text-white mr-1">
                             D:{{this.dogruCevapSayisi}}
                         </span>
                         <span class="badge bgDanger text-white">Y:{{this.yanlisCevapSayisi}}</span>
@@ -307,8 +315,8 @@
                 showCorrectAnswerSound: require("../assets/sound/showCorrectAnswerSound.wav"),
                 finishedSound: require("../assets/sound/finishedAllCountry.wav"),
                 passQuestionSound: require("../assets/sound/passQuestion.wav"),
-                settings: {}
-
+                settings: {},
+                totalTime:0
             };
         },
         created() {
@@ -347,6 +355,18 @@
             disabledMap: function () {
                 return "disabledMap"
             },
+            toplamSure:function () {
+                let minutes = Math.floor(this.totalTime/60);
+                let seconds = this.totalTime % 60;
+                if (minutes>0){
+                    if (seconds<10){
+                        seconds = "0"+seconds;
+                    }
+                    return minutes+":"+seconds;
+                }else{
+                    return seconds;
+                }
+            }
         },
         methods: {
             defaultIlPlakalari: function () {
@@ -635,6 +655,9 @@
             },
             handleFocusEvent:function () {
 
+            },
+            handleTimerTick:function () {
+                this.totalTime += 1;
             }
         }
     }

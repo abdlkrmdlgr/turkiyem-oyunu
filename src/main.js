@@ -21,7 +21,7 @@ import {
     faEllipsisH, faEllipsisV,
     faRandom, faMedal, faPlay, faSync,
     faInfo, faInfoCircle, faCogs, faCog, faQuestionCircle,
-    faMinusSquare, faPlusSquare, faMinusCircle, faPlusCircle
+    faMinusSquare, faPlusSquare, faMinusCircle, faPlusCircle, faClock
 } from "@fortawesome/free-solid-svg-icons";
 
 library.add(
@@ -36,7 +36,7 @@ library.add(
     faEllipsisH, faEllipsisV,
     faRandom, faMedal, faPlay, faSync,
     faInfo, faInfoCircle, faCogs, faCog, faQuestionCircle,
-    faMinusSquare, faPlusSquare, faMinusCircle, faPlusCircle
+    faMinusSquare, faPlusSquare, faMinusCircle, faPlusCircle, faClock
 );
 Vue.component("FontAwesomeIcon", FontAwesomeIcon);
 
