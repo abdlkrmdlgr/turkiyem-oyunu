@@ -1,7 +1,7 @@
 <template>
     <div class="harita">
         <!-- HEADER NAVBAR START -->
-        <b-navbar class="fixed-top m-0 p-0 col-11" type="light" style="left:auto">
+        <b-navbar class="fixed-top m-0 p-0 col-11" type="light" style="left:auto; z-index: -1">
             <div class="col-md-10 col-sm-9 col-9 p-0 offset-lg-0 offset-md-0 offset-sm-1">
                 <span v-if="!this.isPaused && this.isQuestionText && !this.isPassQuestion && !this.isTimeout"
                       class="badge text-wrap col-md-11 col-sm-11 col-11">{{this.questionText}}</span>
@@ -27,10 +27,10 @@
                 </div>
             </div>
             <div class="col-md-2 col-sm-2 col-3 text-right p-0 pr-2">
-                    <span v-if="!this.isPaused" class="btn" @click="passQuestionManuel" title="Soruyu Pas Geç">
+                    <span v-if="!this.isPaused" class="btn pt-0" @click="passQuestionManuel" title="Soruyu Pas Geç">
                         <FontAwesomeIcon icon="random"/>
                     </span>
-                <span class="btn" @click="handleNedirModal" title="Nedir ve Kullanım Klavuzu">
+                <span class="btn pt-0" @click="handleNedirModal" title="Nedir ve Kullanım Klavuzu">
                         <FontAwesomeIcon icon="info-circle" class="text-info"/>
                 </span>
             </div>
@@ -39,7 +39,7 @@
 
         <!-- FOOTER NAVBAR START-->
         <b-navbar class="navbar fixed-bottom col-2 mr-2"
-                  type="light" style="left: 0;">
+                  type="light" style="left: 0; z-index: -1">
             <div class="col-4 text-left mt-5">
                 <span class="h6 p-2 badge bgSuccess text-white">
                     <FontAwesomeIcon icon="clock"/>
@@ -80,7 +80,7 @@
         <!-- FOOTER NAVBAR END-->
 
         <!-- HARİTA START-->
-        <div class="svg-turkiye-haritasi mt-3">
+        <div class="svg-turkiye-haritasi mt-4">
             <svg version="1.1" id="svg-turkiye-haritasi" xmlns="http://www.w3.org/2000/svg"
                  xmlns:xlink="http://www.w3.org/1999/xlink"
                  viewBox="0 0 1008 450" xml:space="preserve"
