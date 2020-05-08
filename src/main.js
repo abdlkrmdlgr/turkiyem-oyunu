@@ -17,11 +17,33 @@ import {
     faCode,
     faSearch,
     faThumbtack,
-    faHourglassStart, faHourglassHalf, faHourglassEnd, faHourglass,
-    faEllipsisH, faEllipsisV,
-    faRandom, faMedal, faPlay, faSync,
-    faInfo, faInfoCircle, faCogs, faCog, faQuestionCircle,
-    faMinusSquare, faPlusSquare, faMinusCircle, faPlusCircle, faClock
+    faHourglassStart,
+    faHourglassHalf,
+    faHourglassEnd,
+    faHourglass,
+    faEllipsisH,
+    faEllipsisV,
+    faRandom,
+    faMedal,
+    faPlay,
+    faSync,
+    faInfo,
+    faInfoCircle,
+    faCogs,
+    faCog,
+    faQuestionCircle,
+    faMinusSquare,
+    faPlusSquare,
+    faMinusCircle,
+    faPlusCircle,
+    faClock,
+    faTag, faTags,
+    faCheckCircle,
+    faBell,
+    faBellSlash,
+    faLayerGroup,
+    faTimesCircle, faFlagCheckered, faWallet
+
 } from "@fortawesome/free-solid-svg-icons";
 
 library.add(
@@ -36,7 +58,8 @@ library.add(
     faEllipsisH, faEllipsisV,
     faRandom, faMedal, faPlay, faSync,
     faInfo, faInfoCircle, faCogs, faCog, faQuestionCircle,
-    faMinusSquare, faPlusSquare, faMinusCircle, faPlusCircle, faClock
+    faMinusSquare, faPlusSquare, faMinusCircle, faPlusCircle, faClock, faTag, faTags, faCheckCircle, faBell, faBellSlash, faLayerGroup,
+    faTimesCircle,faFlagCheckered,faWallet
 );
 Vue.component("FontAwesomeIcon", FontAwesomeIcon);
 

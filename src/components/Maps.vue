@@ -31,7 +31,7 @@
                         <FontAwesomeIcon icon="random"/>
                     </span>
                 <span class="btn pt-0" @click="handleNedirModal" title="Nedir ve Kullanım Klavuzu">
-                        <FontAwesomeIcon icon="info-circle" class="text-info"/>
+                        <FontAwesomeIcon icon="cogs" class="textDanger"/>
                 </span>
             </div>
         </b-navbar>
@@ -63,7 +63,7 @@
                         class="float-right mb-0"/>
 
                 <div class="col-8 font-weight-bold mb-0 mt-0 p-0 float-right">
-                    <p class="mb-0 badge p-0">Puan: {{this.skor}}</p>
+                    <p class="mb-0 badge p-0">Puan: {{this.toplamPuan}}</p>
                     <p class="mb-0">
                         <span class="badge bgSuccess text-white mr-1">
                             D:{{this.dogruCevapSayisi}}
@@ -105,7 +105,7 @@
                  :hide-footer="true"
                  :hide-header="true"
                  no-close-on-esc
-                 aria-label="Gelişmi"
+                 aria-label="Gelişmiş Seçenekler"
                  no-button
                  @hide="handleNedirDialogHide">
 
@@ -146,7 +146,7 @@
                             <p class="text-right small">
                                 <a href="https://twitter.com/bortecoder">@bortecoder</a>
                                 <br>
-                                <span class="badge badge-muted text-white">v1.0.5</span>
+                                <span class="badge badge-muted text-white">v{{settings.version}}</span>
                             </p>
                         </b-tab>
                         <b-tab title="Oyun Ayarları">
@@ -154,14 +154,37 @@
                             <b-container class="bv-example-row">
 
                                 <b-row>
-                                    <b-col>
-                                        İllerin İsmini Göster
-                                        <FontAwesomeIcon icon="info-circle" class="text-info" id="settingsIlAdi"/>
-                                        <b-popover target="settingsIlAdi" triggers="hover" placement="top">
-                                            Haritada il isimlerinin gösterilmesini sağlar.
-                                        </b-popover>
+                                    <b-col class="col-md-10">
+                                        <span class="font-weight-bold">
+                                            <FontAwesomeIcon :class="this.isActiveSettings(settings.zamanaKarsiOyun)"
+                                                             icon="clock"/>
+                                            Zamana Karşı Oyun
+                                        </span>
+                                        <p class="badge pl-0 mb-1 text-left text-wrap font-weight-light">Puan tablosuna
+                                            girebilmek için zamana karşı oynayın. 5
+                                            dakika süreniz var. Bu ayarı değiştirdiğinizde oyun yeniden başlar.</p>
                                     </b-col>
-                                    <b-col>
+                                    <b-col class="col-md-2">
+                                        <ToggleButton
+                                                :is-checked="settings.zamanaKarsiOyun"
+                                                align="right"
+                                                toggle-size="toggle-md"
+                                                @handleChangeToggleEvent="settings.zamanaKarsiOyun=!settings.zamanaKarsiOyun"/>
+                                    </b-col>
+                                </b-row>
+                                <hr class="mt-0 mb-1">
+                                <b-row>
+                                    <b-col class="col-md-10">
+                                        <span class="font-weight-bold">
+                                            <FontAwesomeIcon
+                                                    :class="this.isActiveSettings(settings.illerinIsminiGoster)"
+                                                    icon="tag"/>
+                                            İllerin İsmini Göster
+                                        </span>
+                                        <p class="badge col-md-12 text-left pl-0 mb-1 font-weight-light">Haritada il
+                                            isimlerinin gösterilmesini sağlar.</p>
+                                    </b-col>
+                                    <b-col class="col-md-2">
                                         <ToggleButton
                                                 :is-checked="settings.illerinIsminiGoster"
                                                 align="right"
@@ -169,17 +192,20 @@
                                                 @handleChangeToggleEvent="settings.illerinIsminiGoster=!settings.illerinIsminiGoster"/>
                                     </b-col>
                                 </b-row>
-
+                                <hr class="mt-0 mb-1">
                                 <b-row>
-                                    <b-col>
-                                        Doğru Cevabı Göster
-                                        <FontAwesomeIcon icon="info-circle" class="text-info" id="settingsDogruCevap"/>
-                                        <b-popover target="settingsDogruCevap" triggers="hover" placement="top">
+                                    <b-col class="col-md-10">
+                                        <span class="font-weight-bold">
+                                            <FontAwesomeIcon :class="this.isActiveSettings(settings.dogruCevabiGoster)"
+                                                             icon="check-circle"/>
+                                            Doğru Cevabı Göster
+                                        </span>
+                                        <p class="badge text-wrap text-left pl-0 mb-1 font-weight-light">
                                             Zaman aşımına uğraması veya soruyu bilemediğiniz durumda doğru ilin
                                             gösterilmesini sağlar.
-                                        </b-popover>
+                                        </p>
                                     </b-col>
-                                    <b-col>
+                                    <b-col class="col-md-2">
                                         <ToggleButton
                                                 :is-checked="settings.dogruCevabiGoster"
                                                 align="right"
@@ -187,15 +213,19 @@
                                                 @handleChangeToggleEvent="settings.dogruCevabiGoster=!settings.dogruCevabiGoster"/>
                                     </b-col>
                                 </b-row>
+                                <hr class="mt-0 mb-1">
                                 <b-row>
-                                    <b-col>
-                                        İpucu Göster
-                                        <FontAwesomeIcon icon="info-circle" class="text-info" id="settingsIpucu"/>
-                                        <b-popover target="settingsIpucu" triggers="hover" placement="top">
-                                            Kelimelere karşılık gelen ili bulmanız için ipucu gösterimi sağlar.
-                                        </b-popover>
+                                    <b-col class="col-md-10">
+                                        <span class="font-weight-bold">
+                                            <FontAwesomeIcon :class="this.isActiveSettings(settings.ipucuGoster)"
+                                                             icon="info-circle"/>
+                                            İpucu Göster
+                                        </span>
+                                        <p class="badge pl-0 mb-1 font-weight-light">Kelimelere karşılık gelen ili
+                                            bulmanız için ipucu
+                                            gösterimi sağlar.</p>
                                     </b-col>
-                                    <b-col>
+                                    <b-col class="col-md-2">
                                         <ToggleButton
                                                 :is-checked="settings.ipucuGoster"
                                                 align="right"
@@ -203,16 +233,24 @@
                                                 @handleChangeToggleEvent="settings.ipucuGoster=!settings.ipucuGoster"/>
                                     </b-col>
                                 </b-row>
-
+                                <hr class="mt-0 mb-1">
                                 <b-row>
-                                    <b-col>
-                                        Uyarı Sesleri
-                                        <FontAwesomeIcon icon="info-circle" class="text-info" id="settingsSound"/>
-                                        <b-popover target="settingsSound" triggers="hover" placement="top">
-                                            Uyarı seslerinin açar kapatır.
-                                        </b-popover>
+                                    <b-col class="col-md-10">
+                                        <span class="font-weight-bold">
+                                            <FontAwesomeIcon
+                                                    v-if="settings.uyariSesleri"
+                                                    :class="this.isActiveSettings(settings.uyariSesleri)" icon="bell"/>
+
+                                            <FontAwesomeIcon
+                                                    v-if="!settings.uyariSesleri"
+                                                    :class="this.isActiveSettings(settings.uyariSesleri)"
+                                                    icon="bell-slash"/>
+                                            Uyarı Sesleri
+                                        </span>
+                                        <p class="badge col-md-12 text-left pl-0 mb-1 font-weight-light">Uyarı
+                                            seslerinin açar kapatır.</p>
                                     </b-col>
-                                    <b-col>
+                                    <b-col class="col-md-2">
                                         <ToggleButton
                                                 :is-checked="settings.uyariSesleri"
                                                 align="right"
@@ -220,30 +258,30 @@
                                                 @handleChangeToggleEvent="settings.uyariSesleri=!settings.uyariSesleri"/>
                                     </b-col>
                                 </b-row>
-
+                                <hr class="mt-0 mb-1">
                                 <!--                                                https://codesource.io/how-to-dynamically-create-reactive-properties-in-vue/-->
 
                                 <b-row>
-                                    <b-col>
-                                        Kelime Sayısı
-                                        <FontAwesomeIcon icon="info-circle" class="text-info" id="soruSayisi"/>
+                                    <b-col class="col-md-9">
+                                        <span class="font-weight-bold">
+                                        <FontAwesomeIcon icon="layer-group"/>
+                                            Kelime Sayısı
+                                        </span>
+                                        <p class="badge col-md-12 text-left pl-0 mb-1 font-weight-light">Her il için
+                                            gösterilecek kelime sayısıdır.</p>
                                     </b-col>
-                                    <b-col class="text-right">
+                                    <b-col class="col-md-3 pr-0 text-right">
                                         <span class="btn btn-danger btn-xs">
                                             <FontAwesomeIcon icon="minus-circle"
-                                                             @click="handleKeywordCountChangeClick(-1)"/>
+                                                             @click="handleKelimeSayisiChangeClick(-1)"/>
                                         </span>
-                                        <span class="h6 p-1">{{settings.keywordCount}}</span>
+                                        <span class="h6 p-1">{{settings.kelimeSayisi}}</span>
 
                                         <span class="btn btn-success btn-xs">
                                             <FontAwesomeIcon icon="plus-circle"
-                                                             @click="handleKeywordCountChangeClick(1)"/>
+                                                             @click="handleKelimeSayisiChangeClick(1)"/>
                                         </span>
                                     </b-col>
-
-                                    <b-popover target="soruSayisi" triggers="hover" placement="top">
-                                        Her il için gösterilecek kelime sayısıdır.
-                                    </b-popover>
                                 </b-row>
 
                             </b-container>
@@ -258,6 +296,102 @@
             </div>
 
         </b-modal>
+
+        <b-modal v-model="modalFinishedShow" no-close-on-backdrop
+                 :centered=true :scrollable=true
+                 headerCloseLabel="Kapat"
+                 :hide-footer="true"
+                 :hide-header="true"
+                 no-close-on-esc
+                 aria-label="Sonuç"
+                 @hide="handleRePlay">
+
+            <div class="col-md-12 small">
+                <p>
+                    <button type="button" aria-label="Kapat" class="close"
+                            @click="modalFinishedShow=!modalFinishedShow">×
+                    </button>
+                </p>
+                <div>
+                    <h2 class="text-center textDanger">
+                        <FontAwesomeIcon icon="flag-checkered" class="mr-3"/>
+                        <span v-if="!this.settings.zamanaKarsiOyun">Oyunu Bitti</span>
+                        <span v-else-if="this.totalTime>0">Oyunu Bitirdiniz.</span>
+                        <span v-else>Zaman Doldu</span>
+                    </h2>
+
+                    <p class="text-center font-weight-bold">
+                        {{this.sureHesapla}} sn'de yaptıklarınız!!</p>
+
+                    <hr class="mt-0 mb-1">
+                    <b-container class="bv-example-row h5">
+                        <b-row class="p-1">
+                            <b-col class="col-md-10">
+                                        <span class="font-weight-bold">
+                                            <FontAwesomeIcon class="textDanger" icon="wallet"/>
+                                            Topladığınız Puan
+                                        </span>
+                            </b-col>
+                            <b-col class="col-md-2">
+                                <span class="badge badge-lg">{{this.toplamPuan}}</span>
+                            </b-col>
+                        </b-row>
+
+                        <b-row class="p-1">
+                            <b-col class="col-md-10">
+                                        <span class="font-weight-bold">
+                                            <FontAwesomeIcon class="textSuccess" icon="check-circle"/>
+                                            Doğru Cevap Sayısı
+                                        </span>
+                            </b-col>
+                            <b-col class="col-md-2">
+                                <span class="badge badge-lg">{{this.dogruCevapSayisi}}</span>
+                            </b-col>
+                        </b-row>
+                        <b-row class="p-1">
+                            <b-col class="col-md-10">
+                                        <span class="font-weight-bold">
+                                            <FontAwesomeIcon class="textDanger" icon="times-circle"/>
+                                            Yanlış Cevap Sayısı
+                                        </span>
+                            </b-col>
+                            <b-col class="col-md-2">
+                                <span class="badge badge-lg">{{this.yanlisCevapSayisi}}</span>
+                            </b-col>
+                        </b-row>
+                        <b-row class="p-1">
+                            <b-col class="col-md-10">
+                                        <span class="font-weight-bold">
+                                            <FontAwesomeIcon class="textSuccess" icon="tags"/>
+                                            Bilinen İl Sayısı
+                                        </span>
+                            </b-col>
+                            <b-col class="col-md-2">
+                                <span class="badge badge-lg">{{this.bilinenIlPlakalari.length}}</span>
+                            </b-col>
+                        </b-row>
+                        <b-row class="p-1">
+                            <b-col class="col-md-10">
+                                        <span class="font-weight-bold">
+                                            <FontAwesomeIcon class="textDanger" icon="tags"/>
+                                            Bilinmeyen İl Sayısı
+                                        </span>
+                            </b-col>
+                            <b-col class="col-md-2">
+                                <span class="badge badge-lg">{{this.bilinmeyenIlPlakalari.length}}</span>
+                            </b-col>
+                        </b-row>
+                    </b-container>
+                </div>
+                <div class="text-center">
+                    <div class="btn bgMuted text-white" @click="handleRePlay">
+                        <FontAwesomeIcon icon="sync"/>
+                        Tekrar Oyna
+                    </div>
+                </div>
+            </div>
+        </b-modal>
+
         <!-- MODAL END-->
     </div>
 </template>
@@ -291,7 +425,7 @@
                 meshurSeyler: "",
                 questionText: "",
                 questionsPlaka: null,
-                skor: 0,
+                toplamPuan: 0,
                 timerReset: "false",
                 questionPoint: 3,
                 disabledMapClass: "disabledMap",
@@ -304,6 +438,7 @@
                 isPassQuestion: false,
                 isTimeout: false,
                 modalNedirShow: false,
+                modalFinishedShow: false,
                 pauseTimer: "",
                 dogruCevapSayisi: 0,
                 yanlisCevapSayisi: 0,
@@ -318,6 +453,7 @@
                 finishedSound: require("../assets/sound/finishedAllCountry.wav"),
                 passQuestionSound: require("../assets/sound/passQuestion.wav"),
                 settings: {},
+                oldSettings: {},
                 totalTime: 0
             };
         },
@@ -331,13 +467,15 @@
             this.bilinmeyenIlPlakalari = this.shuffle(this.defaultIlPlakalari());
 
             var settingsStr = localStorage.getItem("turkiyemSettings");
-
             if (settingsStr === null) {
-                this.loadDefaultSettings();
                 this.modalNedirShow = true;
-            } else {
-                this.settings = JSON.parse(settingsStr);
             }
+            this.loadSettings();
+
+            if (this.settings.zamanaKarsiOyun) {
+                this.totalTime = this.settings.zamanaKarsiOyunSuresi
+            }
+
         },
         mounted() {
             this.meshurSeyler = meshurSeylerJson;
@@ -351,28 +489,25 @@
             document.addEventListener("focus", function () {
                 appvue.handleFocusEvent();
             });
-
         },
         computed: {
             disabledMap: function () {
                 return "disabledMap"
             },
             toplamSure: function () {
-                let minutes = Math.floor(this.totalTime / 60);
-                let seconds = this.totalTime % 60;
-                if (minutes > 0) {
-                    if (seconds < 10) {
-                        seconds = "0" + seconds;
-                    }
-                    return minutes + ":" + seconds;
+                return this.calculateSure(this.totalTime);
+            },
+            sureHesapla: function () {
+                if (this.settings.zamanaKarsiOyun) {
+                    return this.calculateSure(this.settings.zamanaKarsiOyunSuresi - this.totalTime);
                 } else {
-                    return seconds;
+                    return this.calculateSure(this.totalTime);
                 }
             }
         },
         methods: {
             defaultIlPlakalari: function () {
-                return [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81]
+                return [1, 2]
             },
             svgturkiyeharitasi: function () {
                 const element = document.querySelector('#svg-turkiye-haritasi');
@@ -414,6 +549,8 @@
                 if (this.isDisabledMap)
                     return;
 
+                this.isDisabledMap = true;
+
                 this.showCountryName(item.$el.attributes.plaka.value);
 
                 if (parseInt(item.$el.attributes.plaka.value) === this.questionsPlaka) {
@@ -427,8 +564,7 @@
                         this.classList.remove("fillDefault");
                     });
 
-                    this.skor += this.questionPoint;
-
+                    this.toplamPuan += this.questionPoint;
                     this.bilinenIlPlakalari.push(this.questionsPlaka);
                     this.bilinmeyenIlPlakalari.splice(0, 1);
 
@@ -436,15 +572,12 @@
                     if (this.bilinmeyenIlPlakalari.length !== 0) {
                         this.passQuestion();
                     } else {
-                        this.isFinished = true;
-                        this.pauseTimerEvent();
-                        this.playSound(this.finishedSound, 0.2);
+                        this.finishGame();
                     }
 
                     this.isBasariliMessage = true;
                     this.isHataliMessage = false;
                     this.isQuestionText = false;
-
                     this.dogruCevapSayisi += 1;
                     this.soruyaVerilenYanlisCevapSayisi = 0;
 
@@ -466,14 +599,12 @@
                     });
 
                     this.kaybedilenPuan = (this.questionPoint > 1) ? this.questionPoint - 1 : 1;
-                    this.skor -= this.kaybedilenPuan;
+                    this.toplamPuan -= this.kaybedilenPuan;
 
                     this.isBasariliMessage = false;
                     this.isHataliMessage = true;
                     this.isQuestionText = false;
-
                     this.yanlisCevapSayisi += 1;
-
                     this.soruyaVerilenYanlisCevapSayisi += 1;
 
                     setTimeout(() => {
@@ -498,6 +629,7 @@
                 if (isPaused) {
                     this.disabledMapClass = this.disabledMap;
                     this.isDisabledMap = true;
+                    this.handleReset();
                 } else {
                     this.disabledMapClass = "";
                     this.isDisabledMap = false;
@@ -512,7 +644,13 @@
                 this.isPaused = true;
                 this.disabledMapClass = this.disabledMap;
                 this.isDisabledMap = true;
-                this.skor = 0;
+                this.toplamPuan = 0;
+                this.timerReset = new Date().getTime().toString();
+                if (this.settings.zamanaKarsiOyun) {
+                    this.totalTime = this.settings.zamanaKarsiOyunSuresi;
+                } else {
+                    this.totalTime = 0;
+                }
 
                 this.nextQuestion();
 
@@ -529,6 +667,7 @@
                     this.nextQuestion();
                     this.timerReset = new Date().getTime().toString();
                     this.playSound(this.passQuestionSound, 1);
+                    this.isDisabledMap = false;
                 }, 1000);
             },
             handleNedirModal: function () {
@@ -542,14 +681,14 @@
                 this.isDisabledMap = true;
             },
             passQuestionManuel: function () {
-                this.skor -= 1;
+                this.toplamPuan -= 1;
                 this.kaybedilenPuan = 1;
                 this.passQuestion();
             },
             nextQuestionTimeup: function () {
 
                 if (this.bilinmeyenIlPlakalari.length !== 0) {
-                    this.skor -= 2;
+                    this.toplamPuan -= 2;
                     this.kaybedilenPuan = 2;
                     this.isTimeout = true;
                     this.comeToEnd();
@@ -571,34 +710,36 @@
                     audio.play();
                 }
             }, showCorrectAnswerAndPassQuestion: function () {
-                if (!this.settings.dogruCevabiGoster)
-                    return;
 
                 if (this.soruyaVerilenYanlisCevapSayisi === this.yanlisCevapHakki || this.isTimeout) {
+                    if (!this.settings.dogruCevabiGoster) {
+                        this.playSound(this.wrongSound);
+                        this.passQuestion();
+                    } else {
+                        this.playSound(this.showCorrectAnswerSound, 0.2);
+                        //Bilemediği durumda cevabı göster ve sonraki soruya geç.
+                        const plaka = this.bilinmeyenIlPlakalari[0] < 10 ? "0" + this.bilinmeyenIlPlakalari[0] : this.bilinmeyenIlPlakalari[0];
+                        var correctAnswersCountryElement = $("g [plaka='" + plaka + "'] path");
 
-                    this.playSound(this.showCorrectAnswerSound, 0.2);
-
-                    this.isDisabledMap = true;
-                    //Bilemediği durumda cevabı göster ve sonraki soruya geç.
-                    const plaka = this.bilinmeyenIlPlakalari[0] < 10 ? "0" + this.bilinmeyenIlPlakalari[0] : this.bilinmeyenIlPlakalari[0];
-                    var correctAnswersCountryElement = $("g [plaka='" + plaka + "'] path");
-
-                    correctAnswersCountryElement.each(function () {
-                        this.classList.add("fillWarning");
-                        this.classList.remove("fillDefault");
-                    });
-
-                    this.showCountryName(plaka);
-                    setTimeout(() => {
                         correctAnswersCountryElement.each(function () {
-                            this.classList.remove("fillWarning");
-                            this.classList.add("fillDefault");
+                            this.classList.add("fillWarning");
+                            this.classList.remove("fillDefault");
                         });
 
-                        $(".il-isimleri").html("");
-                        this.isDisabledMap = false;
-                    }, 1000);
-                    this.passQuestion();
+                        this.showCountryName(plaka);
+                        setTimeout(() => {
+                            correctAnswersCountryElement.each(function () {
+                                this.classList.remove("fillWarning");
+                                this.classList.add("fillDefault");
+                            });
+
+                            $(".il-isimleri").html("");
+
+                        }, 1000);
+                        this.passQuestion();
+                    }
+                } else {
+                    this.isDisabledMap = false;
                 }
             },
             showCountryName: function (plaka) {
@@ -624,7 +765,7 @@
             },
             getMeshurSeylerBy(plaka) {
                 let meshurSeylerRandom = this.shuffle(this.meshurSeyler[plaka - 1].meshurSeyleri);
-                return meshurSeylerRandom.slice(0, this.settings.keywordCount).join(", ");
+                return meshurSeylerRandom.slice(0, this.settings.kelimeSayisi).join(", ");
             },
             calculateQuestionPoint: function (point) {
                 this.questionPoint = point;
@@ -632,23 +773,51 @@
             shuffle: function (arr) {
                 return arr.sort(() => Math.random() - 0.5);
             },
-            handleKeywordCountChangeClick: function (interval) {
-                if (this.settings.keywordCount > 1 && this.settings.keywordCount < 5 ||
-                    this.settings.keywordCount == 5 && interval == -1 ||
-                    this.settings.keywordCount == 1 && interval == 1)
-                    this.settings.keywordCount += interval;
+            handleKelimeSayisiChangeClick: function (interval) {
+                if (this.settings.kelimeSayisi > 1 && this.settings.kelimeSayisi < 5 ||
+                    this.settings.kelimeSayisi == 5 && interval == -1 ||
+                    this.settings.kelimeSayisi == 1 && interval == 1)
+                    this.settings.kelimeSayisi += interval;
             },
             handleNedirDialogHide: function () {
                 localStorage.setItem("turkiyemSettings", JSON.stringify(this.settings));
+
+                if (this.oldSettings.zamanaKarsiOyun !== this.settings.zamanaKarsiOyun) {
+                    if (this.settings.zamanaKarsiOyun) {
+                        this.totalTime = this.settings.zamanaKarsiOyunSuresi;
+                    } else {
+                        this.totalTime = 0;
+                    }
+
+                    this.handleReset();
+                }
+                this.oldSettings = this.settings;
             },
-            loadDefaultSettings: function () {
-                let settings = {
+            loadSettings: function () {
+                var settings = {
+                    zamanaKarsiOyun: true,
+                    zamanaKarsiOyunSuresi: 300,
                     illerinIsminiGoster: true,
                     dogruCevabiGoster: true,
-                    ipucuGoster: true,
+                    ipucuGoster: false,
                     uyariSesleri: true,
-                    keywordCount: 3
+                    kelimeSayisi: 3,
+                    version: "1.1.0"
                 };
+
+                //kullanıcının kayıtlı ayarlarından ezilmesini istediklerimizi forcedUpdate'e eklerim.
+                const forcedUpdate = ["version"];
+
+                //Stored durumdaki ayarlar ezilmeden, yenileri yüklenmesi sağlandı.
+                var storedSettings = localStorage.getItem("turkiyemSettings");
+                if (storedSettings !== null) {
+                    var storedSettingsObject = Object.entries(JSON.parse(storedSettings))
+                    for (var [key, value] of storedSettingsObject) {
+                        if (forcedUpdate.indexOf(key) === -1)
+                            settings[key] = value;
+                    }
+                }
+
                 localStorage.setItem("turkiyemSettings", JSON.stringify(settings));
                 this.settings = settings;
             },
@@ -659,7 +828,44 @@
 
             },
             handleTimerTick: function () {
-                this.totalTime += 1;
+                if (this.settings.zamanaKarsiOyun) {
+                    if (this.totalTime === 0) {
+                        this.finishGame();
+                    } else {
+                        this.totalTime -= 1;
+                    }
+                } else {
+                    this.totalTime += 1;
+                }
+            },
+            isActiveSettings: function (setting) {
+                return setting ? "textSuccess" : "text-muted"
+            },
+            handleRePlay: function () {
+                this.handleReset();
+                this.modalFinishedShow = false;
+            },
+            calculateSure: function (zaman) {
+                let minutes = Math.floor(zaman / 60);
+                let seconds = zaman % 60;
+                if (minutes > 0) {
+                    if (seconds < 10) {
+                        seconds = "0" + seconds;
+                    }
+                    return minutes + ":" + seconds;
+                } else {
+                    if (seconds < 10) {
+                        return "00:0" + seconds;
+                    } else {
+                        return "00:" + seconds;
+                    }
+                }
+            },
+            finishGame: function () {
+                this.isFinished = true;
+                this.pauseTimerEvent();
+                this.playSound(this.finishedSound, 0.2);
+                this.modalFinishedShow = true;
             }
         }
     }
@@ -742,12 +948,11 @@
         background-color: #d5d167
     }
 
-
     .fillClick {
         fill: #e9e5e7 !important;
     }
 
-    .badge-muted {
+    .badge-muted, .bgMuted {
         background-color: #6c757d !important
     }
 
