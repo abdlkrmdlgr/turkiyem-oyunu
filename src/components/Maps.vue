@@ -629,7 +629,6 @@
                 if (isPaused) {
                     this.disabledMapClass = this.disabledMap;
                     this.isDisabledMap = true;
-                    this.handleReset();
                 } else {
                     this.disabledMapClass = "";
                     this.isDisabledMap = false;
@@ -791,7 +790,7 @@
 
                     this.handleReset();
                 }
-                this.oldSettings = this.settings;
+                this.oldSettings = JSON.parse(JSON.stringify(this.settings));
             },
             loadSettings: function () {
                 var settings = {
@@ -819,7 +818,8 @@
                 }
 
                 localStorage.setItem("turkiyemSettings", JSON.stringify(settings));
-                this.settings = settings;
+                this.settings = JSON.parse(JSON.stringify(settings));
+                this.oldSettings = JSON.parse(JSON.stringify(settings));
             },
             handleBlurEvent: function () {
                 this.pauseTimerEvent();
