@@ -163,7 +163,7 @@
                             <b-container class="bv-example-row">
 
                                 <b-row>
-                                    <b-col class="col-md-10 col-10">
+                                    <b-col class="col-md-10 col-sm-10 col-10">
                                         <span class="font-weight-bold">
                                             <FontAwesomeIcon :class="this.isActiveSettings(settings.zamanaKarsiOyun)"
                                                              icon="clock"/>
@@ -173,7 +173,7 @@
                                             girebilmek için zamana karşı oynayın. 5
                                             dakika süreniz var. Bu ayarı değiştirdiğinizde oyun yeniden başlar.</p>
                                     </b-col>
-                                    <b-col class="col-md-2 col-2">
+                                    <b-col class="col-md-2 col-sm-2 col-2">
                                         <ToggleButton
                                                 :is-checked="settings.zamanaKarsiOyun"
                                                 align="right"
@@ -183,7 +183,7 @@
                                 </b-row>
                                 <hr class="mt-0 mb-1">
                                 <b-row>
-                                    <b-col class="col-md-10 col-10">
+                                    <b-col class="col-md-10 col-sm-10 col-10">
                                         <span class="font-weight-bold">
                                             <FontAwesomeIcon
                                                     :class="this.isActiveSettings(settings.illerinIsminiGoster)"
@@ -193,7 +193,7 @@
                                         <p class="badge col-md-12 text-left pl-0 mb-1 font-weight-light">Haritada il
                                             isimlerinin gösterilmesini sağlar.</p>
                                     </b-col>
-                                    <b-col class="col-md-2 col-2">
+                                    <b-col class="col-md-2 col-sm-2 col-2">
                                         <ToggleButton
                                                 :is-checked="settings.illerinIsminiGoster"
                                                 align="right"
@@ -203,7 +203,7 @@
                                 </b-row>
                                 <hr class="mt-0 mb-1">
                                 <b-row>
-                                    <b-col class="col-md-10 col-10">
+                                    <b-col class="col-md-10 col-sm-10 col-10">
                                         <span class="font-weight-bold">
                                             <FontAwesomeIcon :class="this.isActiveSettings(settings.dogruCevabiGoster)"
                                                              icon="check-circle"/>
@@ -214,7 +214,7 @@
                                             gösterilmesini sağlar.
                                         </p>
                                     </b-col>
-                                    <b-col class="col-md-2 col-2">
+                                    <b-col class="col-md-2 col-sm-2 col-2">
                                         <ToggleButton
                                                 :is-checked="settings.dogruCevabiGoster"
                                                 align="right"
@@ -224,7 +224,7 @@
                                 </b-row>
                                 <hr class="mt-0 mb-1">
                                 <b-row>
-                                    <b-col class="col-md-10 col-10">
+                                    <b-col class="col-md-10 col-sm-10 col-10">
                                         <span class="font-weight-bold">
                                             <FontAwesomeIcon :class="this.isActiveSettings(settings.ipucuGoster)"
                                                              icon="info-circle"/>
@@ -234,7 +234,7 @@
                                             bulmanız için ipucu
                                             gösterimi sağlar.</p>
                                     </b-col>
-                                    <b-col class="col-md-2 col-2">
+                                    <b-col class="col-md-2 col-sm-2 col-2">
                                         <ToggleButton
                                                 :is-checked="settings.ipucuGoster"
                                                 align="right"
@@ -244,7 +244,7 @@
                                 </b-row>
                                 <hr class="mt-0 mb-1">
                                 <b-row>
-                                    <b-col class="col-md-10 col-10">
+                                    <b-col class="col-md-10 col-sm-10 col-10">
                                         <span class="font-weight-bold">
                                             <FontAwesomeIcon
                                                     v-if="settings.uyariSesleri"
@@ -259,7 +259,7 @@
                                         <p class="badge col-md-12 text-left pl-0 mb-1 font-weight-light">Uyarı
                                             seslerinin açar kapatır.</p>
                                     </b-col>
-                                    <b-col class="col-md-2 col-2">
+                                    <b-col class="col-md-2 col-sm-2 col-2">
                                         <ToggleButton
                                                 :is-checked="settings.uyariSesleri"
                                                 align="right"
@@ -271,7 +271,7 @@
                                 <!--                                                https://codesource.io/how-to-dynamically-create-reactive-properties-in-vue/-->
 
                                 <b-row>
-                                    <b-col class="col-md-9 col-8">
+                                    <b-col class="col-md-9 col-sm-9 col-8">
                                         <span class="font-weight-bold">
                                         <FontAwesomeIcon icon="layer-group"/>
                                             Kelime Sayısı
@@ -279,7 +279,7 @@
                                         <p class="badge col-md-12 text-left pl-0 mb-1 font-weight-light">Her il için
                                             gösterilecek kelime sayısıdır.</p>
                                     </b-col>
-                                    <b-col class="col-md-3 col-4 pr-0 text-right">
+                                    <b-col class="col-md-3 col-sm-3 col-4 pr-0 text-right">
                                         <span class="btn btn-danger btn-xs">
                                             <FontAwesomeIcon icon="minus-circle"
                                                              @click="handleKelimeSayisiChangeClick(-1)"/>
@@ -326,13 +326,13 @@
                         <span v-else>Zaman Doldu</span>
                     </h2>
 
-                    <p class="text-center font-weight-bold">
+                    <p class="text-center font-weight-bold mb-0">
                         {{this.sureHesapla}} sn'de yaptıklarınız!!</p>
 
                     <hr class="mt-0 mb-1">
-                    <b-container class="bv-example-row h5">
+                    <b-container class="bv-example-row h6">
                         <b-row class="p-1">
-                            <b-col class="col-md-10">
+                            <b-col class="col-md-10 col-sm-10">
                                         <span class="font-weight-bold">
                                             <FontAwesomeIcon class="textDanger" icon="wallet"/>
                                             Topladığınız Puan
@@ -344,7 +344,7 @@
                         </b-row>
 
                         <b-row class="p-1">
-                            <b-col class="col-md-10">
+                            <b-col class="col-md-10 col-sm-10">
                                         <span class="font-weight-bold">
                                             <FontAwesomeIcon class="textSuccess" icon="check-circle"/>
                                             Doğru Cevap Sayısı
@@ -355,7 +355,7 @@
                             </b-col>
                         </b-row>
                         <b-row class="p-1">
-                            <b-col class="col-md-10">
+                            <b-col class="col-md-10 col-sm-10">
                                         <span class="font-weight-bold">
                                             <FontAwesomeIcon class="textDanger" icon="times-circle"/>
                                             Yanlış Cevap Sayısı
@@ -366,7 +366,7 @@
                             </b-col>
                         </b-row>
                         <b-row class="p-1">
-                            <b-col class="col-md-10">
+                            <b-col class="col-md-10 col-sm-10">
                                         <span class="font-weight-bold">
                                             <FontAwesomeIcon class="textSuccess" icon="tags"/>
                                             Bilinen İl Sayısı
@@ -377,7 +377,7 @@
                             </b-col>
                         </b-row>
                         <b-row class="p-1">
-                            <b-col class="col-md-10">
+                            <b-col class="col-md-10 col-sm-10">
                                         <span class="font-weight-bold">
                                             <FontAwesomeIcon class="textDanger" icon="tags"/>
                                             Bilinmeyen İl Sayısı
