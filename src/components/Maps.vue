@@ -27,7 +27,8 @@
                 </div>
             </div>
             <div class="col-md-2 col-sm-2 col-3 text-right p-0 pr-2">
-                    <span v-if="!this.isPaused" class="btn pt-0" @click="passQuestionManuel" title="Soruyu Pas Geç">
+                    <span id="randomQuestion" v-if="!this.isPaused" class="btn pt-0" @click="passQuestionManuel" title="Soruyu Pas Geç"
+                    :class="this.disabledManuelPass">
                         <FontAwesomeIcon icon="random"/>
                     </span>
                 <span class="btn pt-0" @click="handleNedirModal" title="Nedir ve Kullanım Klavuzu">
@@ -119,18 +120,26 @@
                                 özellikklerinden yola çıkılarak hazırlanmıştır.
                                 Size gösterilen anahtar kelimelere karşılık gelen ilimizi bulmanız gerekmektedir.
                             </p>
-                            <p><b>Nasıl kullanılır?</b></p>
 
+
+                            <p><b>Cihazınıza Kurulum</b></p>
                             <p>Android için: Tarayıcınız üzerinden Anasayfa'ya ekle dediğinizde uygulama çekmecenize
                                 kurulum
                                 yapılacak ve oyunu artık oradan oynayabileceksiniz.</p>
                             <p>iOS için: Apple protokolleri gereği sadece Safari'de Anasayfa'ya ekle özelliği
                                 çalışmaktadır. Sayfayı
                                 paylaş dediğinizde Anaysafa'ya ekle özelliğini göreceksiniz.</p>
+
+                            <p><b>Nasıl Oynanır?</b></p>
+
                             <p>Zaman sayacını başlattığınızda sorular anahtar kelimeler size gösterilecektir. Zaman
                                 akarken hangi
                                 ilimize ait olduğunu bulmanız beklenmektedir.</p>
                             <p>Doğru cevabı bulduğunuzda puan kazanacaksınız. Yanlış cevapta ise puan kaybedersiniz.</p>
+
+                            <p>Ayarlardan istediğiniz şekilde özelleştirebilirsiniz. Zamana karşı yarış yaparak arkadaşlarınız ile kıyasalamada bulunabilirsiniz.</p>
+
+                            <p>Bir soru geldiğinde o soru içerisinde bir kez pas geçebilirsiniz. </p>
 
                             <p><b>Puanlama Nasıl Olur?</b></p>
                             <p>Zamana bağlı olarak kazanacağınız ve kaybedeceğiniz puan büyük olur.</p>
@@ -154,7 +163,7 @@
                             <b-container class="bv-example-row">
 
                                 <b-row>
-                                    <b-col class="col-md-10">
+                                    <b-col class="col-md-10 col-10">
                                         <span class="font-weight-bold">
                                             <FontAwesomeIcon :class="this.isActiveSettings(settings.zamanaKarsiOyun)"
                                                              icon="clock"/>
@@ -164,7 +173,7 @@
                                             girebilmek için zamana karşı oynayın. 5
                                             dakika süreniz var. Bu ayarı değiştirdiğinizde oyun yeniden başlar.</p>
                                     </b-col>
-                                    <b-col class="col-md-2">
+                                    <b-col class="col-md-2 col-2">
                                         <ToggleButton
                                                 :is-checked="settings.zamanaKarsiOyun"
                                                 align="right"
@@ -174,7 +183,7 @@
                                 </b-row>
                                 <hr class="mt-0 mb-1">
                                 <b-row>
-                                    <b-col class="col-md-10">
+                                    <b-col class="col-md-10 col-10">
                                         <span class="font-weight-bold">
                                             <FontAwesomeIcon
                                                     :class="this.isActiveSettings(settings.illerinIsminiGoster)"
@@ -184,7 +193,7 @@
                                         <p class="badge col-md-12 text-left pl-0 mb-1 font-weight-light">Haritada il
                                             isimlerinin gösterilmesini sağlar.</p>
                                     </b-col>
-                                    <b-col class="col-md-2">
+                                    <b-col class="col-md-2 col-2">
                                         <ToggleButton
                                                 :is-checked="settings.illerinIsminiGoster"
                                                 align="right"
@@ -194,7 +203,7 @@
                                 </b-row>
                                 <hr class="mt-0 mb-1">
                                 <b-row>
-                                    <b-col class="col-md-10">
+                                    <b-col class="col-md-10 col-10">
                                         <span class="font-weight-bold">
                                             <FontAwesomeIcon :class="this.isActiveSettings(settings.dogruCevabiGoster)"
                                                              icon="check-circle"/>
@@ -205,7 +214,7 @@
                                             gösterilmesini sağlar.
                                         </p>
                                     </b-col>
-                                    <b-col class="col-md-2">
+                                    <b-col class="col-md-2 col-2">
                                         <ToggleButton
                                                 :is-checked="settings.dogruCevabiGoster"
                                                 align="right"
@@ -215,7 +224,7 @@
                                 </b-row>
                                 <hr class="mt-0 mb-1">
                                 <b-row>
-                                    <b-col class="col-md-10">
+                                    <b-col class="col-md-10 col-10">
                                         <span class="font-weight-bold">
                                             <FontAwesomeIcon :class="this.isActiveSettings(settings.ipucuGoster)"
                                                              icon="info-circle"/>
@@ -225,7 +234,7 @@
                                             bulmanız için ipucu
                                             gösterimi sağlar.</p>
                                     </b-col>
-                                    <b-col class="col-md-2">
+                                    <b-col class="col-md-2 col-2">
                                         <ToggleButton
                                                 :is-checked="settings.ipucuGoster"
                                                 align="right"
@@ -235,7 +244,7 @@
                                 </b-row>
                                 <hr class="mt-0 mb-1">
                                 <b-row>
-                                    <b-col class="col-md-10">
+                                    <b-col class="col-md-10 col-10">
                                         <span class="font-weight-bold">
                                             <FontAwesomeIcon
                                                     v-if="settings.uyariSesleri"
@@ -250,7 +259,7 @@
                                         <p class="badge col-md-12 text-left pl-0 mb-1 font-weight-light">Uyarı
                                             seslerinin açar kapatır.</p>
                                     </b-col>
-                                    <b-col class="col-md-2">
+                                    <b-col class="col-md-2 col-2">
                                         <ToggleButton
                                                 :is-checked="settings.uyariSesleri"
                                                 align="right"
@@ -262,7 +271,7 @@
                                 <!--                                                https://codesource.io/how-to-dynamically-create-reactive-properties-in-vue/-->
 
                                 <b-row>
-                                    <b-col class="col-md-9">
+                                    <b-col class="col-md-9 col-8">
                                         <span class="font-weight-bold">
                                         <FontAwesomeIcon icon="layer-group"/>
                                             Kelime Sayısı
@@ -270,7 +279,7 @@
                                         <p class="badge col-md-12 text-left pl-0 mb-1 font-weight-light">Her il için
                                             gösterilecek kelime sayısıdır.</p>
                                     </b-col>
-                                    <b-col class="col-md-3 pr-0 text-right">
+                                    <b-col class="col-md-3 col-4 pr-0 text-right">
                                         <span class="btn btn-danger btn-xs">
                                             <FontAwesomeIcon icon="minus-circle"
                                                              @click="handleKelimeSayisiChangeClick(-1)"/>
@@ -286,9 +295,6 @@
 
                             </b-container>
 
-                        </b-tab>
-                        <b-tab title="Öneride Bulun">
-                            <p>Pek Yakında...</p>
                         </b-tab>
                     </b-tabs>
                 </div>
@@ -454,7 +460,9 @@
                 passQuestionSound: require("../assets/sound/passQuestion.wav"),
                 settings: {},
                 oldSettings: {},
-                totalTime: 0
+                totalTime: 0,
+                //soru süresi boyunca 1 kez pass geçilebilir.
+                isManuelPassed: false
             };
         },
         created() {
@@ -493,6 +501,9 @@
         computed: {
             disabledMap: function () {
                 return "disabledMap"
+            },
+            disabledManuelPass: function () {
+                return this.isManuelPassed?"text-muted":""
             },
             toplamSure: function () {
                 return this.calculateSure(this.totalTime);
@@ -550,7 +561,6 @@
                     return;
 
                 this.isDisabledMap = true;
-
                 this.showCountryName(item.$el.attributes.plaka.value);
 
                 if (parseInt(item.$el.attributes.plaka.value) === this.questionsPlaka) {
@@ -587,6 +597,7 @@
                         this.isQuestionText = true;
                         this.removeCountryName();
                     }, 1000);
+                    this.isManuelPassed = false;
                 } else {
                     if ($("." + item.$el.attributes.id.value + " path")[0].classList.contains("fillSuccess"))
                         return;
@@ -680,12 +691,14 @@
                 this.isDisabledMap = true;
             },
             passQuestionManuel: function () {
-                this.toplamPuan -= 1;
-                this.kaybedilenPuan = 1;
-                this.passQuestion();
+                if (!this.isManuelPassed){
+                    this.toplamPuan -= 1;
+                    this.kaybedilenPuan = 1;
+                    this.passQuestion();
+                    this.isManuelPassed = true;
+                }
             },
             nextQuestionTimeup: function () {
-
                 if (this.bilinmeyenIlPlakalari.length !== 0) {
                     this.toplamPuan -= 2;
                     this.kaybedilenPuan = 2;
@@ -737,6 +750,7 @@
                         }, 1000);
                         this.passQuestion();
                     }
+                    this.isManuelPassed = false;
                 } else {
                     this.isDisabledMap = false;
                 }
