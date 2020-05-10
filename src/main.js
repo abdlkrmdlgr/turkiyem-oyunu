@@ -42,7 +42,8 @@ import {
     faBell,
     faBellSlash,
     faLayerGroup,
-    faTimesCircle, faFlagCheckered, faWallet
+    faTimesCircle, faFlagCheckered, faWallet,
+    faAward, faStar,faThumbsUp, faThumbsDown, faCoins,faBolt
 
 } from "@fortawesome/free-solid-svg-icons";
 
@@ -59,7 +60,8 @@ library.add(
     faRandom, faMedal, faPlay, faSync,
     faInfo, faInfoCircle, faCogs, faCog, faQuestionCircle,
     faMinusSquare, faPlusSquare, faMinusCircle, faPlusCircle, faClock, faTag, faTags, faCheckCircle, faBell, faBellSlash, faLayerGroup,
-    faTimesCircle,faFlagCheckered,faWallet
+    faTimesCircle,faFlagCheckered,faWallet,
+    faAward,faStar,faThumbsUp, faThumbsDown, faCoins,faBolt
 );
 Vue.component("FontAwesomeIcon", FontAwesomeIcon);
 

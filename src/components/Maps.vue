@@ -27,8 +27,9 @@
                 </div>
             </div>
             <div class="col-md-2 col-sm-2 col-3 text-right p-0 pr-2">
-                    <span id="randomQuestion" v-if="!this.isPaused" class="btn pt-0" @click="passQuestionManuel" title="Soruyu Pas Geç"
-                    :class="this.disabledManuelPass">
+                    <span id="randomQuestion" v-if="!this.isPaused" class="btn pt-0" @click="passQuestionManuel"
+                          title="Soruyu Pas Geç"
+                          :class="this.disabledManuelPass">
                         <FontAwesomeIcon icon="random"/>
                     </span>
                 <span class="btn pt-0" @click="handleNedirModal" title="Nedir ve Kullanım Klavuzu">
@@ -42,10 +43,11 @@
         <b-navbar class="navbar fixed-bottom col-2 mr-2"
                   type="light" style="left: 0; z-index: -1">
             <div class="col-4 text-left mt-5">
-                <span class="h6 p-2 badge bgSuccess text-white">
+                <span class="h6 p-2 pb-0 mb-0 badge bgSuccess text-white">
                     <FontAwesomeIcon icon="clock"/>
                     {{this.toplamSure}}
                 </span>
+                <span class="badge m-0 p-0">Seviye: {{this.convertLevelToStrMain}}</span>
             </div>
         </b-navbar>
 
@@ -115,7 +117,7 @@
                 </button>
                 <div>
                     <b-tabs content-class="mt-3">
-                        <b-tab title="Nedir?" active>
+                        <b-tab title="Nedir?" :active="this.isNedirActive">
                             <p>Bu oyun Türkiye'mizin illerinde belli başlı ön plana çıkan kültürel, sosyal, coğrafi
                                 özellikklerinden yola çıkılarak hazırlanmıştır.
                                 Size gösterilen anahtar kelimelere karşılık gelen ilimizi bulmanız gerekmektedir.
@@ -137,7 +139,8 @@
                                 ilimize ait olduğunu bulmanız beklenmektedir.</p>
                             <p>Doğru cevabı bulduğunuzda puan kazanacaksınız. Yanlış cevapta ise puan kaybedersiniz.</p>
 
-                            <p>Ayarlardan istediğiniz şekilde özelleştirebilirsiniz. Zamana karşı yarış yaparak arkadaşlarınız ile kıyasalamada bulunabilirsiniz.</p>
+                            <p>Ayarlardan istediğiniz şekilde özelleştirebilirsiniz. Zamana karşı yarış yaparak
+                                arkadaşlarınız ile kıyasalamada bulunabilirsiniz.</p>
 
                             <p>Bir soru geldiğinde o soru içerisinde bir kez pas geçebilirsiniz. </p>
 
@@ -158,7 +161,7 @@
                                 <span class="badge badge-muted text-white">v{{settings.version}}</span>
                             </p>
                         </b-tab>
-                        <b-tab title="Oyun Ayarları">
+                        <b-tab title="Oyun Ayarları" :active="!this.isNedirActive">
 
                             <b-container class="bv-example-row">
 
@@ -274,33 +277,30 @@
                                     <b-col class="col-md-9 col-sm-9 col-8">
                                         <span class="font-weight-bold">
                                         <FontAwesomeIcon icon="layer-group"/>
-                                            Kelime Sayısı
+                                            Oyun Zorluğu
                                         </span>
-                                        <p class="badge col-md-12 text-left pl-0 mb-1 font-weight-light">Her il için
-                                            gösterilecek kelime sayısıdır.</p>
+                                        <p class="badge col-md-12 text-left pl-0 mb-1 font-weight-light">
+                                            Oyun zorluğudur. Zaman gibi kriterleri kapsamaktadır.
+                                        </p>
                                     </b-col>
                                     <b-col class="col-md-3 col-sm-3 col-4 pr-0 text-right">
-                                        <span class="btn btn-danger btn-xs">
-                                            <FontAwesomeIcon icon="minus-circle"
-                                                             @click="handleKelimeSayisiChangeClick(-1)"/>
-                                        </span>
-                                        <span class="h6 p-1">{{settings.kelimeSayisi}}</span>
-
-                                        <span class="btn btn-success btn-xs">
-                                            <FontAwesomeIcon icon="plus-circle"
-                                                             @click="handleKelimeSayisiChangeClick(1)"/>
-                                        </span>
+                                        <GameLevel
+                                                :clickable="true"
+                                                :current-level="this.settings.oyunZorlugu"
+                                                icon="bolt"
+                                                :max-level="this.maxOyunZorlugu"
+                                                selected-level-class="text-warning"
+                                                :is-text-visible="false"
+                                                size="2x"
+                                                @handleLevelChange="handleLevelChange"
+                                        />
                                     </b-col>
                                 </b-row>
-
                             </b-container>
-
                         </b-tab>
                     </b-tabs>
                 </div>
-
             </div>
-
         </b-modal>
 
         <b-modal v-model="modalFinishedShow" no-close-on-backdrop
@@ -322,10 +322,21 @@
                     <h2 class="text-center textDanger">
                         <FontAwesomeIcon icon="flag-checkered" class="mr-3"/>
                         <span v-if="!this.settings.zamanaKarsiOyun">Oyunu Bitti</span>
-                        <span v-else-if="this.totalTime>0">Oyunu Bitirdiniz.</span>
+                        <span v-else-if="this.totalTime>0">
+
+                            Oyunu Bitirdiniz.</span>
                         <span v-else>Zaman Doldu</span>
                     </h2>
+                    <p class="text-center">
+                        <GameLevel
+                                :current-level="this.settings.oyunZorlugu"
+                                icon="bolt"
+                                :max-level="this.maxOyunZorlugu"
+                                size="2x"
+                                selected-level-class="text-warning"
+                                :is-text-visible="true"/>
 
+                    </p>
                     <p class="text-center font-weight-bold mb-0">
                         {{this.sureHesapla}} sn'de yaptıklarınız!!</p>
 
@@ -334,7 +345,7 @@
                         <b-row class="p-1">
                             <b-col class="col-md-10 col-sm-10">
                                         <span class="font-weight-bold">
-                                            <FontAwesomeIcon class="textDanger" icon="wallet"/>
+                                            <FontAwesomeIcon class="textWarning" icon="coins"/>
                                             Topladığınız Puan
                                         </span>
                             </b-col>
@@ -342,18 +353,29 @@
                                 <span class="badge badge-lg">{{this.toplamPuan}}</span>
                             </b-col>
                         </b-row>
-
                         <b-row class="p-1">
                             <b-col class="col-md-10 col-sm-10">
                                         <span class="font-weight-bold">
-                                            <FontAwesomeIcon class="textSuccess" icon="check-circle"/>
-                                            Doğru Cevap Sayısı
+                                            <FontAwesomeIcon class="textSuccess" icon="thumbs-up"/>
+                                            Bilinen İl Sayısı
                                         </span>
                             </b-col>
                             <b-col class="col-md-2">
-                                <span class="badge badge-lg">{{this.dogruCevapSayisi}}</span>
+                                <span class="badge badge-lg">{{this.bilinenIlPlakalari.length}}</span>
                             </b-col>
                         </b-row>
+                        <b-row class="p-1">
+                            <b-col class="col-md-10 col-sm-10">
+                                        <span class="font-weight-bold">
+                                            <FontAwesomeIcon class="textDanger" icon="thumbs-down"/>
+                                            Bilinmeyen İl Sayısı
+                                        </span>
+                            </b-col>
+                            <b-col class="col-md-2">
+                                <span class="badge badge-lg">{{this.bilinmeyenIlPlakalari.length}}</span>
+                            </b-col>
+                        </b-row>
+
                         <b-row class="p-1">
                             <b-col class="col-md-10 col-sm-10">
                                         <span class="font-weight-bold">
@@ -365,33 +387,11 @@
                                 <span class="badge badge-lg">{{this.yanlisCevapSayisi}}</span>
                             </b-col>
                         </b-row>
-                        <b-row class="p-1">
-                            <b-col class="col-md-10 col-sm-10">
-                                        <span class="font-weight-bold">
-                                            <FontAwesomeIcon class="textSuccess" icon="tags"/>
-                                            Bilinen İl Sayısı
-                                        </span>
-                            </b-col>
-                            <b-col class="col-md-2">
-                                <span class="badge badge-lg">{{this.bilinenIlPlakalari.length}}</span>
-                            </b-col>
-                        </b-row>
-                        <b-row class="p-1">
-                            <b-col class="col-md-10 col-sm-10">
-                                        <span class="font-weight-bold">
-                                            <FontAwesomeIcon class="textDanger" icon="tags"/>
-                                            Bilinmeyen İl Sayısı
-                                        </span>
-                            </b-col>
-                            <b-col class="col-md-2">
-                                <span class="badge badge-lg">{{this.bilinmeyenIlPlakalari.length}}</span>
-                            </b-col>
-                        </b-row>
                     </b-container>
                 </div>
                 <div class="text-center">
-                    <div class="btn bgMuted text-white" @click="handleRePlay">
-                        <FontAwesomeIcon icon="sync"/>
+                    <div class="btn bgSuccess text-white" @click="handleRePlay">
+                        <FontAwesomeIcon icon="play"/>
                         Tekrar Oyna
                     </div>
                 </div>
@@ -420,11 +420,12 @@
 
     import $ from "jquery";
     import ToggleButton from "./ToggleButton";
+    import GameLevel from "./GameLevel";
 
     export default {
         name: 'Maps',
         props: {},
-        components: {ToggleButton, Country, BaseTimer},
+        components: {GameLevel, ToggleButton, Country, BaseTimer},
         data() {
             return {
                 countries: countryJson,
@@ -444,6 +445,7 @@
                 isPassQuestion: false,
                 isTimeout: false,
                 modalNedirShow: false,
+                isNedirActive: false,
                 modalFinishedShow: false,
                 pauseTimer: "",
                 dogruCevapSayisi: 0,
@@ -462,7 +464,8 @@
                 oldSettings: {},
                 totalTime: 0,
                 //soru süresi boyunca 1 kez pass geçilebilir.
-                isManuelPassed: false
+                isManuelPassed: false,
+                maxOyunZorlugu: 3
             };
         },
         created() {
@@ -477,6 +480,7 @@
             var settingsStr = localStorage.getItem("turkiyemSettings");
             if (settingsStr === null) {
                 this.modalNedirShow = true;
+                this.isNedirActive = true;
             }
             this.loadSettings();
 
@@ -503,7 +507,7 @@
                 return "disabledMap"
             },
             disabledManuelPass: function () {
-                return this.isManuelPassed?"text-muted":""
+                return this.isManuelPassed ? "text-muted" : ""
             },
             toplamSure: function () {
                 return this.calculateSure(this.totalTime);
@@ -514,6 +518,11 @@
                 } else {
                     return this.calculateSure(this.totalTime);
                 }
+            }
+            ,
+            convertLevelToStrMain: function () {
+                let zorlukStr = ["Kolay", "Orta", "Zor"];
+                return zorlukStr[this.settings.oyunZorlugu - 1];
             }
         },
         methods: {
@@ -599,8 +608,10 @@
                     }, 1000);
                     this.isManuelPassed = false;
                 } else {
-                    if ($("." + item.$el.attributes.id.value + " path")[0].classList.contains("fillSuccess"))
+                    if ($("." + item.$el.attributes.id.value + " path")[0].classList.contains("fillSuccess")) {
+                        this.isDisabledMap = false;
                         return;
+                    }
 
                     if (this.soruyaVerilenYanlisCevapSayisi < 2)
                         this.playSound(this.wrongSound)
@@ -691,7 +702,7 @@
                 this.isDisabledMap = true;
             },
             passQuestionManuel: function () {
-                if (!this.isManuelPassed){
+                if (!this.isManuelPassed) {
                     this.toplamPuan -= 1;
                     this.kaybedilenPuan = 1;
                     this.passQuestion();
@@ -778,7 +789,7 @@
             },
             getMeshurSeylerBy(plaka) {
                 let meshurSeylerRandom = this.shuffle(this.meshurSeyler[plaka - 1].meshurSeyleri);
-                return meshurSeylerRandom.slice(0, this.settings.kelimeSayisi).join(", ");
+                return meshurSeylerRandom.slice(0, this.maxOyunZorlugu - this.settings.oyunZorlugu + 1).join(", ");
             },
             calculateQuestionPoint: function (point) {
                 this.questionPoint = point;
@@ -786,16 +797,14 @@
             shuffle: function (arr) {
                 return arr.sort(() => Math.random() - 0.5);
             },
-            handleKelimeSayisiChangeClick: function (interval) {
-                if (this.settings.kelimeSayisi > 1 && this.settings.kelimeSayisi < 5 ||
-                    this.settings.kelimeSayisi == 5 && interval == -1 ||
-                    this.settings.kelimeSayisi == 1 && interval == 1)
-                    this.settings.kelimeSayisi += interval;
+            handleLevelChange: function (index) {
+                this.settings.oyunZorlugu = index;
             },
             handleNedirDialogHide: function () {
                 localStorage.setItem("turkiyemSettings", JSON.stringify(this.settings));
-
-                if (this.oldSettings.zamanaKarsiOyun !== this.settings.zamanaKarsiOyun) {
+                this.isNedirActive = false;
+                if (this.oldSettings.zamanaKarsiOyun !== this.settings.zamanaKarsiOyun ||
+                    this.oldSettings.oyunZorlugu !== this.settings.oyunZorlugu) {
                     if (this.settings.zamanaKarsiOyun) {
                         this.totalTime = this.settings.zamanaKarsiOyunSuresi;
                     } else {
@@ -814,8 +823,8 @@
                     dogruCevabiGoster: true,
                     ipucuGoster: false,
                     uyariSesleri: true,
-                    kelimeSayisi: 3,
-                    version: "1.1.0"
+                    oyunZorlugu: 2,
+                    version: "1.1.2"
                 };
 
                 //kullanıcının kayıtlı ayarlarından ezilmesini istediklerimizi forcedUpdate'e eklerim.
@@ -951,7 +960,7 @@
     }
 
     .bgSuccess {
-        background-color: #2b6442
+        background-color: #2b6442 !important;
     }
 
     .bgDanger {
@@ -985,5 +994,4 @@
         line-height: 1 !important;;
         border-radius: 0.2rem !important;;
     }
-
 </style>
