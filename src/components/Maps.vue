@@ -40,14 +40,14 @@
         <!-- HEADER NAVBAR END -->
 
         <!-- FOOTER NAVBAR START-->
-        <b-navbar class="navbar fixed-bottom col-2 mr-2"
-                  type="light" style="left: 0; z-index: -1">
-            <div class="col-4 text-left mt-5">
+        <b-navbar class="navbar fixed-bottom col-2 mr-2 pb-0"
+                  type="light" style="left: 0; z-index: 1">
+            <div class="col-4 text-left">
                 <span class="h6 p-2 pb-0 mb-0 badge bgSuccess text-white">
                     <FontAwesomeIcon icon="clock"/>
                     {{this.toplamSure}}
                 </span>
-                <span class="badge m-0 p-0">Seviye: {{this.convertLevelToStrMain}}</span>
+                <span style="font-size: 8px" class="badge m-0 p-0">Seviye: {{this.convertLevelToStrMain}}</span>
             </div>
         </b-navbar>
 
@@ -302,7 +302,6 @@
                 </div>
             </div>
         </b-modal>
-
         <b-modal v-model="modalFinishedShow" no-close-on-backdrop
                  :centered=true :scrollable=true
                  headerCloseLabel="Kapat"
@@ -397,11 +396,9 @@
                 </div>
             </div>
         </b-modal>
-
         <!-- MODAL END-->
     </div>
 </template>
-
 <script>
 
     /**
