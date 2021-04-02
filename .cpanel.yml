@@ -1,5 +1,5 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/abdulker/public_html/gitt
+    - export DEPLOYPATH=/home/abdulker/public_html
     - /bin/cp -R /home/abdulker/gitRepo/gitt $DEPLOYPATH
