@@ -2,4 +2,4 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/abdulker/public_html/gitt
-    - /bin/cp -R / $DEPLOYPATH
+    - /bin/cp -R /home/abdulker/gitRepo/turkiyem-oyunu $DEPLOYPATH
