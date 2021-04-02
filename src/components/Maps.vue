@@ -121,6 +121,7 @@
                             <p>Bu oyun Türkiye'mizin illerinde belli başlı ön plana çıkan kültürel, sosyal, coğrafi
                                 özellikklerinden yola çıkılarak hazırlanmıştır.
                                 Size gösterilen anahtar kelimelere karşılık gelen ilimizi bulmanız gerekmektedir.
+                                v1.1
                             </p>
 
 
